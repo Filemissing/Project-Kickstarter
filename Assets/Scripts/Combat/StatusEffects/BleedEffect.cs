@@ -3,10 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Bleed Effect", menuName = "Combat/Status Effects/Bleed Effect")]
 public class BleedEffect : StatusEffect
 {
-    public int damagePerLevel;
-    public override void ExecuteEffect(Combatant target)
+    public BleedEffect(int level) => this.level = level;
+
+    int damage => 1 * level;
+    public override void ExecuteEffect(CombatState state, Combatant target)
     {
-        target.Damage(damagePerLevel * level, nonLethal: true);
-        level--;
+        target.Damage(damage);
     }
 }

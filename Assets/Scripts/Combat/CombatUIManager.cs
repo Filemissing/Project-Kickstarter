@@ -1,22 +1,37 @@
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CombatUIManager : MonoBehaviour
 {
+    public static CombatUIManager instance;
+    private void Awake()
+    {
+        if(instance == null)
+            instance = this;
+        else
+            throw new System.Exception("Multiple instances of CombatUIManager detected!");
+    }
+
     [SerializeField] CanvasGroup actionMenu;
     [SerializeField] CanvasGroup attackMenu;
     [SerializeField] CanvasGroup itemsMenu;
-    [SerializeField] CanvasGroup infoMenu;
 
     [SerializeField] Button buttonPrefab;
 
+    public void HideAllMenus()
+    {
+        HideCanvasGroup(actionMenu);
+        HideCanvasGroup(attackMenu);
+        HideCanvasGroup(itemsMenu);
+    }
     public void ShowActionMenu()
     {
         ShowCanvasGroup(actionMenu);
         HideCanvasGroup(attackMenu);
         HideCanvasGroup(itemsMenu);
-        HideCanvasGroup(infoMenu);
     }
     public void ShowAttackMenu()
     {
@@ -25,7 +40,6 @@ public class CombatUIManager : MonoBehaviour
         HideCanvasGroup(actionMenu);
         ShowCanvasGroup(attackMenu);
         HideCanvasGroup(itemsMenu);
-        HideCanvasGroup(infoMenu);
     }
     public void ShowItemsMenu()
     {
@@ -34,14 +48,12 @@ public class CombatUIManager : MonoBehaviour
         HideCanvasGroup(actionMenu);
         HideCanvasGroup(attackMenu);
         ShowCanvasGroup(itemsMenu);
-        HideCanvasGroup(infoMenu);
     }
     public void ShowInfoMenu()
     {
         HideCanvasGroup(actionMenu);
         HideCanvasGroup(attackMenu);
         HideCanvasGroup(itemsMenu);
-        ShowCanvasGroup(infoMenu);
     }
 
     void ShowCanvasGroup(CanvasGroup group)
@@ -65,34 +77,41 @@ public class CombatUIManager : MonoBehaviour
         }
 
         Attack[] attacks = GetAttacks();
-
-        Debug.Log("Constructing Attack Menu with " + attacks.Length + " attacks.");
-
-        Button[] buttons = new Button[attacks.Length];
         for (int i = 0; i < attacks.Length; i++)
         {
-            buttons[i] = Instantiate(buttonPrefab, attackMenu.transform);
-            buttons[i].GetComponentInChildren<TMP_Text>().text = attacks[i].name;
-            buttons[i].onClick.AddListener(delegate { GetAttacks()[i].Execute(CombatManager.instance.playerCombat, CombatManager.instance.enemy); });
+            Button button = Instantiate(buttonPrefab, attackMenu.transform);
+            button.GetComponentInChildren<TMP_Text>().text = attacks[i].name;
 
-            Debug.Log("Added button for attack: " + attacks[i].name + " with index: " + i);
+            int index = i; // Capture the current value of i
+            button.onClick.AddListener(delegate { CombatManager.instance.playerCombat.combatState.playerAttack = GetAttacks()[index]; });
         }
     }
-    void ConstructItemsMenu()
+    public void ConstructItemsMenu()
     {
-        foreach (Transform child in attackMenu.transform)
+        foreach (Transform child in itemsMenu.transform)
         {
             Destroy(child.gameObject);
         }
 
         Item[] items = CombatManager.instance.playerCombat.playerStats.items.ToArray();
 
+        List<Item> filteredItems = new();
+        foreach (Item item in items)
+        {
+            if(item != null && !filteredItems.Contains(item))
+                filteredItems.Add(item);
+        }
+
+        items = filteredItems.ToArray();
+
         Button[] buttons = new Button[items.Length];
         for (int i = 0; i < items.Length; i++)
         {
-            buttons[i] = Instantiate(buttonPrefab, itemsMenu.transform);
-            buttons[i].GetComponentInChildren<TMP_Text>().text = items[i].name;
-            buttons[i].onClick.AddListener(delegate { items[i].Use(CombatManager.instance.playerCombat, CombatManager.instance.enemy); });
+            Button button = Instantiate(buttonPrefab, itemsMenu.transform);
+            button.GetComponentInChildren<TMP_Text>().text = items[i].name;
+
+            int index = i; // Capture the current value of i
+            button.onClick.AddListener(delegate { items[index].Use(CombatManager.instance.playerCombat, CombatManager.instance.enemy); });
         }
     }
 

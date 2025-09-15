@@ -9,9 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e73ea138725a9847a8326d3cae579af, type: 3}
-  m_Name: Bleed Effect
+  m_Script: {fileID: 11500000, guid: 9441fdc390669eb438aa25759c6d1c45, type: 3}
+  m_Name: Poke
   m_EditorClassIdentifier: 
-  level: 0
-  icon: {fileID: 0}
-  damagePerLevel: 1
+  name: Poke
+  oxygenCost: 0
+  damage: 2
+  givesStatusEffect: 0
+  statusEffect: {fileID: 0}
+  effectLevel: 0
+  hasFollowUp: 0
+  isForced: 0
+  followUpAttack: {fileID: 0}

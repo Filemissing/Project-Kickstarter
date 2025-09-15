@@ -9,16 +9,13 @@ public abstract class Combatant : MonoBehaviour
 
     public List<StatusEffect> statusEffects = new();
 
+    public virtual void StartTurn()
+    {
+
+    }
     public virtual void EndTurn()
     {
-        foreach (StatusEffect effect in statusEffects)
-        {
-            effect.ExecuteEffect(this);
-            if (effect.level <= 0)
-            {
-                statusEffects.Remove(effect);
-            }
-        }
+        CombatManager.instance.NextTurn();
     }
 
     public virtual void Damage(int damage, bool nonLethal = false)

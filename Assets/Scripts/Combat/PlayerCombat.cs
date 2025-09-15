@@ -4,15 +4,25 @@ using UnityEngine;
 public class PlayerCombat : Combatant
 {
     public PlayerStats playerStats;
+    public CombatState combatState;
 
-    private void Start()
+    public void Initialize()
     {
+        playerStats.currentHealth = playerStats.maxHealth;
+        playerStats.currentOxygen = playerStats.maxOxygen;
+
         maxHP = playerStats.maxHealth;
         currentHP = playerStats.currentHealth;
     }
 
+    public void StartTurn(CombatState combatState)
+    {
+        this.combatState = combatState;
+        CombatUIManager.instance.ShowActionMenu();
+    }
     public override void EndTurn()
     {
+        CombatUIManager.instance.HideAllMenus();
         base.EndTurn();
     }
 

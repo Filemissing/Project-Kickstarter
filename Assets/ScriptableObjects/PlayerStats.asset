@@ -19,3 +19,8 @@ MonoBehaviour:
   currentWeapon: {fileID: 11400000, guid: 4daa652034dd2604cb48853f002f6241, type: 2}
   unlockedWeapons:
   - {fileID: 11400000, guid: 4daa652034dd2604cb48853f002f6241, type: 2}
+  items:
+  - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
+  - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
+  - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
+  - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
