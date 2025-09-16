@@ -12,20 +12,16 @@ public class CombatManager : MonoBehaviour
             throw new System.Exception("Multiple instances of CombatManager detected!");
     }
 
+    [Header("Static references")]
     [SerializeField] GameObject enemyPos;
-
     public PlayerCombat playerCombat;
     public Enemy enemy;
 
+    [Header("Combat State")]
     public combatState currentCombatState = combatState.playerTurn;
-    public enum combatState
-    {
-        playerTurn,
-        enemyTurn
-    }
 
+    [Header("Testing")]
     public Enemy testEnemy;
-
     private void Start()
     {
         StartCombat(testEnemy);
@@ -41,7 +37,7 @@ public class CombatManager : MonoBehaviour
                 break;
             case combatState.enemyTurn:
                 currentCombatState = combatState.playerTurn;
-                playerCombat.StartTurn(new CombatState());
+                playerCombat.StartTurn();
                 break;
         }
     }
@@ -49,32 +45,37 @@ public class CombatManager : MonoBehaviour
     public void StartCombat(Enemy enemy)
     {
         currentCombatState = combatState.playerTurn;
-        playerCombat.Initialize();
         this.enemy = Instantiate(enemy, enemyPos.transform);
-        playerCombat.StartTurn(new CombatState());
+        playerCombat.StartTurn();
     }
-    public void EndCombat(bool victory)
+    public void EndCombat(CombatEndState endState)
     {
-        if (victory)
+        switch (endState)
         {
-            Debug.Log("Player won the combat!");
-        }
-        else
-        {
-            Debug.Log("Player lost the combat!");
+            case CombatEndState.Victory:
+                Debug.Log("You won the fight!");
+                break;
+            case CombatEndState.Defeat:
+                Debug.Log("You lost the fight...");
+                break;
+            case CombatEndState.Fled:
+                Debug.Log("You fled the fight.");
+                break;
         }
     }
 }
 
-public class CombatState
+public enum combatState
 {
-    public Attack playerAttack;
-    public int playerAttackDamage;
-    public Attack enemyAttack;
-    public int enemyAttackDamage;
+    playerTurn,
+    enemyTurn
+}
 
-    public bool usedItems = false;
-    public List<Item> usedItemsList = new();
+public enum CombatEndState
+{
+    Victory,
+    Defeat,
+    Fled
 }
 
 public enum StatusEffectType

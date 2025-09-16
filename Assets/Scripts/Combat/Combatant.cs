@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+using NaughtyAttributes;
 
 public abstract class Combatant : MonoBehaviour
 {
@@ -11,10 +13,18 @@ public abstract class Combatant : MonoBehaviour
 
     public virtual void StartTurn()
     {
-
+        if (statusEffects.Any(se => se is EntangledEffect))
+        {
+            EndTurn();
+        }
     }
     public virtual void EndTurn()
     {
+        foreach (StatusEffect effect in statusEffects)
+        {
+            effect.ExecuteEffect(this);
+            effect.RemoveEffectLevel(this, 1);
+        }
         CombatManager.instance.NextTurn();
     }
 
@@ -41,4 +51,13 @@ public abstract class Combatant : MonoBehaviour
         }
     }
     public abstract void Die();
+
+    // testing purposes only
+    [Button] void ListStatusEffects()
+    {
+        foreach (StatusEffect effect in statusEffects)
+        {
+            Debug.Log(effect.GetType().Name + " Level: " + effect.level);
+        }
+    }
 }

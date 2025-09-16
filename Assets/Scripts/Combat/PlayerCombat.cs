@@ -4,20 +4,26 @@ using UnityEngine;
 public class PlayerCombat : Combatant
 {
     public PlayerStats playerStats;
-    public CombatState combatState;
 
-    public void Initialize()
+    [SerializeField] BreatheAction breatheAction;
+    [SerializeField] RunAction runAction;
+
+    [SerializeField] int maxOxygen;
+    [SerializeField] int currentOxygen;
+
+    public void Start()
     {
-        playerStats.currentHealth = playerStats.maxHealth;
-        playerStats.currentOxygen = playerStats.maxOxygen;
-
+        // start combat with max health and oxygen
         maxHP = playerStats.maxHealth;
-        currentHP = playerStats.currentHealth;
+        currentHP = maxHP;
+
+        maxOxygen = playerStats.maxOxygen;
+        currentOxygen = maxOxygen;
     }
 
-    public void StartTurn(CombatState combatState)
+    public override void StartTurn()
     {
-        this.combatState = combatState;
+        base.StartTurn();
         CombatUIManager.instance.ShowActionMenu();
     }
     public override void EndTurn()
@@ -26,38 +32,39 @@ public class PlayerCombat : Combatant
         base.EndTurn();
     }
 
+    // additional actions specific to the player
+    public void Breathe()
+    {
+        breatheAction.Execute(this, CombatManager.instance.enemy);
+    }
+    public void Run()
+    {
+        runAction.Execute(this, CombatManager.instance.enemy);
+    }
+
+    // helper funcitons for oxygen management
     public void UseOxygen(int amount)
     {
-        playerStats.currentOxygen -= amount;
-        if (playerStats.currentOxygen <= 0)
+        currentOxygen -= amount;
+        if (currentOxygen <= 0)
         {
-            int deficit = Mathf.Abs(playerStats.currentOxygen);
-            playerStats.currentOxygen = 0;
+            int deficit = Mathf.Abs(currentOxygen);
+            currentOxygen = 0;
 
             Damage(deficit);
         }
     }
     public void RestoreOxygen(int amount)
     {
-        playerStats.currentOxygen += amount;
-        if (playerStats.currentOxygen > playerStats.maxOxygen)
+        currentOxygen += amount;
+        if (currentOxygen > maxOxygen)
         {
-            playerStats.currentOxygen = playerStats.maxOxygen;
+            currentOxygen = maxOxygen;
         }
     }
 
-    public override void Damage(int damage, bool nonLethel = false)
-    {
-        base.Damage(damage, nonLethel);
-        playerStats.currentHealth = currentHP;
-    }
-    public override void Heal(int healAmount)
-    {
-        base.Heal(healAmount);
-        playerStats.currentHealth = currentHP;
-    }
     public override void Die()
     {
-        CombatManager.instance.EndCombat(false);
+        CombatManager.instance.EndCombat(CombatEndState.Defeat);
     }
 }

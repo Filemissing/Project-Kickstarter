@@ -32,9 +32,19 @@ public class Attack : Action
 
     public override void Execute(Combatant user, Combatant target)
     {
-        target.Damage(damage);
+        // determine if the attack hits or misses
+        if (user.statusEffects.Find(e => e is ConfusedEffect) is ConfusedEffect confusedEffect)
+        {
+            if (Random.value < confusedEffect.missChance)
+            {
+                Debug.Log(user.name + "'s attack missed due to confusion!");
+                user.EndTurn();
+                return;
+            }
+        }
 
-        if(givesStatusEffect && statusEffect != null)
+        // apply possible status effect to target
+        if (givesStatusEffect && statusEffect != null)
         {
             if(target.statusEffects.Contains(statusEffect))
                 target.statusEffects.Find(e => e == statusEffect).level += effectLevel;
@@ -59,6 +69,18 @@ public class Attack : Action
             }
         }
 
+        // apply damage modifiers from status effects
+        int finalDamage = damage;
+
+        if (user.statusEffects.Find(e => e is SkillIssuedEffect) is SkillIssuedEffect skillIssuedEffect)
+            finalDamage = Mathf.RoundToInt(damage * skillIssuedEffect.damageMultiplier);
+
+        if (target.statusEffects.Find(e => e is WetEffect) is WetEffect wetEffect)
+            finalDamage = Mathf.RoundToInt(finalDamage * wetEffect.damageMultiplier);
+
+        target.Damage(finalDamage);
+
+        //additional logic
         base.Execute(user, target);
 
         user.EndTurn();

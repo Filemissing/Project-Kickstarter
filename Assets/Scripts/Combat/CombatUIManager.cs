@@ -15,11 +15,14 @@ public class CombatUIManager : MonoBehaviour
             throw new System.Exception("Multiple instances of CombatUIManager detected!");
     }
 
+    [Header("Menus")]
     [SerializeField] CanvasGroup actionMenu;
     [SerializeField] CanvasGroup attackMenu;
     [SerializeField] CanvasGroup itemsMenu;
 
+    [Header("Prefabs")]
     [SerializeField] Button buttonPrefab;
+    [SerializeField] Button backButtonPrefab;
 
     public void HideAllMenus()
     {
@@ -49,12 +52,6 @@ public class CombatUIManager : MonoBehaviour
         HideCanvasGroup(attackMenu);
         ShowCanvasGroup(itemsMenu);
     }
-    public void ShowInfoMenu()
-    {
-        HideCanvasGroup(actionMenu);
-        HideCanvasGroup(attackMenu);
-        HideCanvasGroup(itemsMenu);
-    }
 
     void ShowCanvasGroup(CanvasGroup group)
     {
@@ -76,6 +73,8 @@ public class CombatUIManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
+        AddBackButton(attackMenu.transform);
+
         Attack[] attacks = GetAttacks();
         for (int i = 0; i < attacks.Length; i++)
         {
@@ -83,7 +82,7 @@ public class CombatUIManager : MonoBehaviour
             button.GetComponentInChildren<TMP_Text>().text = attacks[i].name;
 
             int index = i; // Capture the current value of i
-            button.onClick.AddListener(delegate { CombatManager.instance.playerCombat.combatState.playerAttack = GetAttacks()[index]; });
+            button.onClick.AddListener(delegate { GetAttacks()[index].Execute(CombatManager.instance.playerCombat, CombatManager.instance.enemy); });
         }
     }
     public void ConstructItemsMenu()
@@ -92,6 +91,8 @@ public class CombatUIManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
+        AddBackButton(itemsMenu.transform);
 
         Item[] items = CombatManager.instance.playerCombat.playerStats.items.ToArray();
 
@@ -113,6 +114,11 @@ public class CombatUIManager : MonoBehaviour
             int index = i; // Capture the current value of i
             button.onClick.AddListener(delegate { items[index].Use(CombatManager.instance.playerCombat, CombatManager.instance.enemy); });
         }
+    }
+
+    public void AddBackButton(Transform parentMenu)
+    {
+        Instantiate(backButtonPrefab, parentMenu).onClick.AddListener(ShowActionMenu);
     }
 
     Attack[] GetAttacks()

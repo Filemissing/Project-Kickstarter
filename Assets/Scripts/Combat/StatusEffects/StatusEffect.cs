@@ -31,5 +31,5 @@ public abstract class StatusEffect
         }
     }
 
-    public abstract void ExecuteEffect(CombatState state, Combatant target);
+    public abstract void ExecuteEffect(Combatant target);
 }

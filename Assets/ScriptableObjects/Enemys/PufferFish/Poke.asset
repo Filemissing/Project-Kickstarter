@@ -16,7 +16,7 @@ MonoBehaviour:
   oxygenCost: 0
   damage: 2
   givesStatusEffect: 0
-  statusEffect: {fileID: 0}
+  statusEffectType: 0
   effectLevel: 0
   hasFollowUp: 0
   isForced: 0

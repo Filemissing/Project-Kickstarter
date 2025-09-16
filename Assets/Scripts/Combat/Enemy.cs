@@ -8,13 +8,18 @@ public class Enemy : Combatant
 
     public override void Die()
     {
-        CombatManager.instance.EndCombat(true);
+        CombatManager.instance.EndCombat(CombatEndState.Victory);
         Destroy(gameObject);
+    }
+
+    public override void StartTurn()
+    {
+        base.StartTurn();
+        ExecuteMove();
     }
 
     public void ExecuteMove()
     {
-
         Attack selectedAttack = attacks.FirstOrDefault(a => a.isForced);
 
         if(selectedAttack == null)
@@ -25,6 +30,6 @@ public class Enemy : Combatant
 
         Debug.Log(name + " is using the move: " + selectedAttack.name);
 
-        CombatManager.instance.playerCombat.combatState.enemyAttackDamage = selectedAttack.damage;
+        selectedAttack.Execute(this, CombatManager.instance.playerCombat);
     }
 }

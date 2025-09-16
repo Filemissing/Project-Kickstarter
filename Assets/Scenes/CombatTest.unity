@@ -672,9 +672,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1300648168}
-        m_TargetAssemblyTypeName: CombatUIManager, Assembly-CSharp
-        m_MethodName: ShowInfoMenu
+      - m_Target: {fileID: 1520467328}
+        m_TargetAssemblyTypeName: PlayerCombat, Assembly-CSharp
+        m_MethodName: Run
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1034,9 +1034,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1300648168}
-        m_TargetAssemblyTypeName: CombatUIManager, Assembly-CSharp
-        m_MethodName: ShowInfoMenu
+      - m_Target: {fileID: 1520467328}
+        m_TargetAssemblyTypeName: PlayerCombat, Assembly-CSharp
+        m_MethodName: Breathe
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1617,6 +1617,7 @@ MonoBehaviour:
   attackMenu: {fileID: 814420843}
   itemsMenu: {fileID: 1819492927}
   buttonPrefab: {fileID: 5620163003652164959, guid: 96c33ac482140f548abb995fd670c39e, type: 3}
+  backButtonPrefab: {fileID: 5620163003652164959, guid: 7a423e084acf1a644897803a4ca0acb4, type: 3}
 --- !u!1 &1512752728
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,8 +1853,11 @@ MonoBehaviour:
   name: Player
   maxHP: 0
   currentHP: 0
-  statusEffects: []
   playerStats: {fileID: 11400000, guid: b8ee730195021e845854e5c22abb4021, type: 2}
+  breatheAction: {fileID: 11400000, guid: 26a286be8cade1e419af75fcceacd3e8, type: 2}
+  runAction: {fileID: 11400000, guid: 192784c620461db4da4a97d6a14c273e, type: 2}
+  maxOxygen: 0
+  currentOxygen: 0
 --- !u!1 &1528506537
 GameObject:
   m_ObjectHideFlags: 0

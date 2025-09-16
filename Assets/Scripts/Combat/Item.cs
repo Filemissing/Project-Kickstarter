@@ -37,8 +37,6 @@ public class Item : ScriptableObject
             statusEffect.RemoveEffect(target);
         }
 
-        
-
         CombatManager.instance.playerCombat.playerStats.items.Remove(this);
 
         CombatUIManager.instance.ConstructItemsMenu();

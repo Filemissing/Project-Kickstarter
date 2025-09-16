@@ -5,10 +5,8 @@ using UnityEngine;
 public class PlayerStats : ScriptableObject
 {
     public int maxHealth;
-    public int currentHealth;
 
     public int maxOxygen;
-    public int currentOxygen;
 
     public Weapon currentWeapon;
     public List<Weapon> unlockedWeapons = new();
