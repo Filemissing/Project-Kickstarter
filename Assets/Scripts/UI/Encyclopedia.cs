@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -22,11 +23,50 @@ public class Encyclopedia : MonoBehaviour
     [SerializeField] private EncyclopediaEntry entryPrefab;
     [SerializeField] private RectTransform entriesParent;
 
+    [SerializeField] private RectTransform fishPanel;
+    private Vector2 defaultFishPanelPosition;
+    
+    private RectTransform rectTransform;
+    private CanvasGroup canvasGroup;
+
 
     void Awake()
     {
+        defaultFishPanelPosition = fishPanel.anchoredPosition;
+        rectTransform = GetComponent<RectTransform>();
+        canvasGroup = GetComponent<CanvasGroup>();
         UpdateEntrys();
         UpdateFishPanel(entries[0].enemyInfo);
+    }
+
+    [Button]
+    public void Appear()
+    {
+        canvasGroup.alpha = 0;
+        canvasGroup.DOFade(1, .2f).SetEase(Ease.OutCubic);
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+        
+        rectTransform.localScale = Vector3.one * 1.1f;
+        rectTransform.DOScale(Vector2.one, .2f).SetEase(Ease.OutCubic);
+    }
+
+    public void Disappear()
+    {
+        canvasGroup.alpha = 1;
+        canvasGroup.DOFade(0, .2f).SetEase(Ease.OutCubic);
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+        
+        rectTransform.localScale = Vector3.one;
+        rectTransform.DOScale(Vector2.one * 1.1f, .2f).SetEase(Ease.OutCubic);
+    }
+
+    void FishPanelAppearAnimation()
+    {
+        Vector2 offsetPosition = defaultFishPanelPosition + new Vector2(0, 30);
+        fishPanel.anchoredPosition = offsetPosition;
+        fishPanel.DOAnchorPos(defaultFishPanelPosition, 0.2f).SetEase(Ease.OutCubic);
     }
     
     public void UpdateFishPanel(EnemyInfo enemyInfo)
@@ -39,6 +79,8 @@ public class Encyclopedia : MonoBehaviour
         naturalHabitat.sprite = enemyInfo.naturalHabitat;
         
         descriptionText.text = enemyInfo.description;
+
+        FishPanelAppearAnimation();
     }
 
     [Button]
@@ -60,7 +102,7 @@ public class Encyclopedia : MonoBehaviour
             
             // Visuals
             newEntry.transform.GetChild(0).GetComponent<TMP_Text>().text = enemyInfos[i].name;
-            newEntry.transform.GetChild(1).GetComponent<Image>().sprite = enemyInfos[i].sprite150px;
+            newEntry.transform.GetChild(2).GetComponent<Image>().sprite = enemyInfos[i].sprite150px;
             
             entries.Add(newEntry);
         }
