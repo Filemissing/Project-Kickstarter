@@ -6,10 +6,18 @@ using NaughtyAttributes;
 public abstract class Combatant : MonoBehaviour
 {
     new public string name;
-    public int maxHP;
-    public int currentHP;
+
+    [Header("Health")]
+    [SerializeField] protected int maxHP;
+    [SerializeField] protected int currentHP;
+    public RectTransform healthBar;
 
     public List<StatusEffect> statusEffects = new();
+
+    public virtual void Start()
+    {
+        UpdateHPbar();
+    }
 
     public virtual void StartTurn()
     {
@@ -31,6 +39,7 @@ public abstract class Combatant : MonoBehaviour
     public virtual void Damage(int damage, bool nonLethal = false)
     {
         currentHP -= damage;
+        UpdateHPbar();
         if (currentHP <= 0)
         {
             if (nonLethal)
@@ -49,8 +58,15 @@ public abstract class Combatant : MonoBehaviour
         {
             currentHP = maxHP;
         }
+        UpdateHPbar();
     }
     public abstract void Die();
+
+    void UpdateHPbar()
+    {
+        float newValue = (float)currentHP / (float)maxHP;
+        healthBar.localScale = new Vector3(1f, Mathf.Clamp01(newValue), 1f);
+    }
 
     // testing purposes only
     [Button] void ListStatusEffects()
