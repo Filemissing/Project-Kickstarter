@@ -21,11 +21,10 @@ public class Notification : MonoBehaviour
     [SerializeField] private Image fishImage;
 
 
-    void SetValues()
+    void SetValues(EnemyInfo enemyInfo)
     {
-        // Set values with use of fish information
-        //fishName.text = ...
-        //fishImage.sprite = ...
+        fishName.text = enemyInfo.name;
+        fishImage.sprite = enemyInfo.sprite150px;
     }
     
     void AppearTween()
@@ -52,10 +51,9 @@ public class Notification : MonoBehaviour
         rectTransform.anchoredPosition = hidePosition;
     }
     
-    [Button]
-    public void PlayNotification()
+    public void PlayNotification(EnemyInfo enemyInfo)
     {
-        SetValues();
+        SetValues(enemyInfo);
         AppearTween();
     }
 }
