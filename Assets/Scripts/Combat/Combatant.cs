@@ -28,7 +28,8 @@ public abstract class Combatant : MonoBehaviour
     }
     public virtual void EndTurn()
     {
-        foreach (StatusEffect effect in statusEffects)
+        StatusEffect[] tempStatusEffects = statusEffects.ToArray();
+        foreach (StatusEffect effect in tempStatusEffects)
         {
             effect.ExecuteEffect(this);
             effect.RemoveEffectLevel(this, 1);
