@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Carolina Hammerhead
   m_EditorClassIdentifier: 
   name: Carolina Hammerhead
-  picture150px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
-  picture500px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
-  picture100px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
+  sprite150px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
+  sprite500px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
+  sprite100px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
   scientificName: Sphyrna gilberti
   endangerment: 2
   naturalHabitat: {fileID: 21300000, guid: a5f4cc6a36c24ee4b89016ed1a2e8278, type: 3}

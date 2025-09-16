@@ -5,11 +5,11 @@ public class EnemyInfo : ScriptableObject
 {
     [Header("Basic Info")]
     public string name;
-    public Sprite picture150px;
+    public Sprite sprite150px;
     
     [Header("Encyclopedia")]
-    public Sprite picture500px;
-    public Sprite picture100px;
+    public Sprite sprite500px;
+    public Sprite sprite100px;
     public string scientificName;
     public EndangermentChart.Endangerment endangerment;
     public Sprite naturalHabitat;

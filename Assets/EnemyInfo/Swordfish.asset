@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcccd409beb0a3548a875514391f39f0, type: 3}
+  m_Name: Swordfish
+  m_EditorClassIdentifier: 
+  name: Swordfish
+  sprite150px: {fileID: 21300000, guid: 7d2775d65f7b9fb4e8775d7a9465e49b, type: 3}
+  sprite500px: {fileID: 21300000, guid: 7d2775d65f7b9fb4e8775d7a9465e49b, type: 3}
+  sprite100px: {fileID: 21300000, guid: 7d2775d65f7b9fb4e8775d7a9465e49b, type: 3}
+  scientificName: Xiphias gladius
+  endangerment: 1
+  naturalHabitat: {fileID: 21300000, guid: d9421623bdfc0ba4eba47d38f406c8cc, type: 3}
+  description: 'The swordfish (Xiphias gladius), also known as the broadbill[5] in
+    some countries, are large, highly migratory predatory fish characterized by a
+    long, flat, pointed bill. They are the sole member of the family Xiphiidae.[6][7]
+    They are a popular sport fish of the billfish category. Swordfish are elongated,
+    round-bodied, and lose all teeth and scales by adulthood. These fish are found
+    widely in tropical and temperate parts of the Atlantic, Pacific, and Indian Oceans,
+    and can typically be found from near the surface to a depth of 550 m (1,800 ft),
+    and exceptionally up to depths of 2,234 m.[3] They commonly reach 3 m (10 ft)
+    in length, and the maximum reported is 4.55 m (14 ft 11 in) in length and 650
+    kg (1,430 lb) in weight.[4][8]'
