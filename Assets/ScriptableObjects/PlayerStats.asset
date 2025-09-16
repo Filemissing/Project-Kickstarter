@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b024d12a4c3b9c4c9c62dd1a4724cd3, type: 3}
+  m_Name: PlayerStats
+  m_EditorClassIdentifier: 
+  maxHealth: 50
+  currentHealth: 50
+  maxOxygen: 20
+  currentOxygen: 20
+  currentWeapon: {fileID: 11400000, guid: 4daa652034dd2604cb48853f002f6241, type: 2}
+  unlockedWeapons:
+  - {fileID: 11400000, guid: 4daa652034dd2604cb48853f002f6241, type: 2}
+  items:
+  - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
+  - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
+  - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
+  - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
