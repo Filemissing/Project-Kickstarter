@@ -3065,6 +3065,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPos: {fileID: 295804453}
   playerCombat: {fileID: 1520467328}
+  enemyHealthBar: {fileID: 95368245}
   enemy: {fileID: 0}
   currentCombatState: 0
   testEnemy: {fileID: 3702919068124877934, guid: 608a770399346bf46887435425dccb6a, type: 3}
