@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Carolina Hammerhead
   sprite150px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
+  enemy: {fileID: 3702919068124877934, guid: 608a770399346bf46887435425dccb6a, type: 3}
+  rarity: 10
+  zonesAmount: 4
   sprite500px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
   sprite100px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
   scientificName: Sphyrna gilberti

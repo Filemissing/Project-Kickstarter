@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && GameManager.instance.canPlayerMove)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             

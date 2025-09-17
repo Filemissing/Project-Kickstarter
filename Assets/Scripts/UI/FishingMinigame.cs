@@ -31,6 +31,7 @@ public class FishingMinigame : MonoBehaviour
     List<RectTransform> currentZones = new  List<RectTransform>();
     private float cursorSpeed = 0;
     private bool playingMinigame = false;
+    private Enemy currentEnemy;
     
     void TweenVisible()
     {
@@ -67,6 +68,7 @@ public class FishingMinigame : MonoBehaviour
             {
                 StopMinigame();
                 print("WON");
+                GameManager.instance.EnterCombat(currentEnemy);
             }
             
             zone.GetComponent<Image>().DOFade(0, completeZoneTweenDuration).SetEase(Ease.InCubic);
@@ -137,13 +139,14 @@ public class FishingMinigame : MonoBehaviour
     }
     
     [Button]
-    public void StartMinigame()
+    public void StartMinigame(int zonesAmount, Enemy enemy)
     {
         // Prepare
+        currentEnemy = enemy;
         cursorSpeed = 0;
         cursor.rotation = Quaternion.Euler(0, 0, 0);
         cursorImage.color = defaultCursorColor;
-        SpawnZones(3);
+        SpawnZones(zonesAmount);
         
         // Visible
         TweenVisible();
@@ -227,6 +230,7 @@ public class FishingMinigame : MonoBehaviour
                 IncorrectCursorClickTween();
                 StopMinigame();
                 print("LOST");
+                GameManager.instance.EnterCombat(currentEnemy);
             }
         }
     }

@@ -5,6 +5,9 @@ using Random = UnityEngine.Random;
 
 public class FishSpawnSpawner : MonoBehaviour
 {
+    [Header("EnemyInfos")] [SerializeField]
+    private List<EnemyInfo> enemyInfos = new List<EnemyInfo>();
+    
     [Header("Settings")]
     [SerializeField] private float minDistance = 5;
     [SerializeField] private Vector3 startPosition = Vector3.zero;
@@ -75,7 +78,37 @@ public class FishSpawnSpawner : MonoBehaviour
             float rarity = Mathf.Clamp(distance / maxDistance * 10, 0, 10);
             
             // Decide fish using rarity
-            //newFishSpawn.fish = ...
+            EnemyInfo ChooseFish(float spawnRarity)
+            {
+                float CalculateWeight(float fishRarity, float spawnRarity)
+                {
+                    float diff = Mathf.Abs(fishRarity - spawnRarity);
+                    return 1f / (diff + 1f);
+                }
+                
+                float totalWeight = 0f;
+                List<float> weights = new List<float>();
+
+                foreach (var fish in enemyInfos)
+                {
+                    float w = CalculateWeight(fish.rarity, spawnRarity);
+                    weights.Add(w);
+                    totalWeight += w;
+                }
+                
+                float rand = Random.value * totalWeight;
+                float total = 0f;
+
+                for (int i = 0; i < enemyInfos.Count; i++)
+                {
+                    total += weights[i];
+                    if (rand <= total)
+                        return enemyInfos[i];
+                }
+
+                return enemyInfos[enemyInfos.Count - 1];
+            }
+            newFishSpawn.enemyInfo = ChooseFish(rarity);
             
             fishSpawns.Add(newFishSpawn);
         }
