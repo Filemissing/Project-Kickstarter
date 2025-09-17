@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcccd409beb0a3548a875514391f39f0, type: 3}
+  m_Name: Carolina Hammerhead
+  m_EditorClassIdentifier: 
+  name: Carolina Hammerhead
+  sprite150px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
+  sprite500px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
+  sprite100px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
+  scientificName: Sphyrna gilberti
+  endangerment: 2
+  naturalHabitat: {fileID: 21300000, guid: a5f4cc6a36c24ee4b89016ed1a2e8278, type: 3}
+  description: 'The Carolina hammerhead (Sphyrna gilberti) is a species of hammerhead
+    shark, and part of the family Sphyrnidae, found in the western Atlantic Ocean.
+    Their pupping grounds are in nearshore waters off the southeastern U.S. with
+    the highest concentrations found in Bulls Bay, South Carolina.[3] The Carolina
+    hammerhead has also been found in nearshore waters off of Brazil.[4] It was formally
+    described in 2013.[5] It is currently classified as Vulnerable (VU) on the IUCN
+    Red List due to overfishing and habitat degradation.  Little is known about the
+    habits of the species. It is a sister species to S. lewini. As of 2013 This species
+    has been a relatively new addition to the hammerhead shark genus. The species
+    possesses a major genetic difference from their cousins, most notable differences
+    is the lower vertebral number and a lighter outer tone.[6] The Carolina hammerhead
+    is named in honor of Carter Gilbert, who unknowingly recorded the first known
+    specimen of the shark off Charleston, South Carolina, in 1967.[7] Dr. Gilbert,
+    who was the curator of the Florida Museum of Natural History from 1961 to 1998,
+    caught what he believed was an anomalous scalloped hammerhead shark with 10 fewer
+    vertebrae than a typical scalloped hammerhead. It was not confirmed to be a different
+    species altogether until Quattro''s discovery in 2013. The general diet of the
+    Carolina hammerheads consists of bony fishes and cephalopods such as squids,
+    octopuses, and cuttlefishes. They also feed on shrimps, lobsters, crabs, and
+    other smaller sharks and rays. '
