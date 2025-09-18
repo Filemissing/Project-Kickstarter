@@ -21,13 +21,17 @@ Shader "Unlit/Ocean"
 
         Pass
         {
+            Cull Off
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
 
             #include "UnityCG.cginc"
             #include "UnityLightingCommon.cginc"
-
+            
+            UNITY_INSTANCING_BUFFER_START(Props)
+        
             // Properties
             float4 _Color;
             float _Speed;
@@ -41,6 +45,8 @@ Shader "Unlit/Ocean"
             float4 _FoamColor;
             float _FoamStrength;
             float _FoamHeight;
+
+            UNITY_INSTANCING_BUFFER_END(Props)
 
             // Wave settings (adjust NUM_WAVES for more detail change max here)
             float4 _WaveData[32]; // (dirX, dirZ, wavelength, steepness)
@@ -56,10 +62,10 @@ Shader "Unlit/Ocean"
             struct v2f
             {
                 float2 uv : TEXCOORD0;
-                float4 clipPos : SV_POSITION;
+                float4 vertex : SV_POSITION;
                 float3 worldNormal : NORMAL;
-                float3 worldPos : TEXCOORD1;
-                float4 vertex : TEXCOORD2;
+                float3 worldPos : TEXCOORD2;
+                float4 objectPos : TEXCOORD3;
             };
 
             // Gerstner Wave Function
@@ -107,8 +113,8 @@ Shader "Unlit/Ocean"
                 o.worldPos = displacedPos;
 
                 // Transform back to object space
-                o.vertex = mul(unity_WorldToObject, float4(displacedPos, 1.0));
-                o.clipPos = UnityObjectToClipPos(o.vertex);
+                o.objectPos = mul(unity_WorldToObject, float4(displacedPos, 1.0));
+                o.vertex = UnityObjectToClipPos(o.objectPos);
 
                 // recalculate normals
                 float3 tangentX = calculateTotalDisplacement(worldPos + float3(1, 0, 0)) - displacedPos;
@@ -146,7 +152,9 @@ Shader "Unlit/Ocean"
 
                 float4 specularColor = lerp(albedo, _LightColor0, _Metalic);
 
-                return (albedo * diffuseLighting) + (albedo * globalIllumination) + (specularColor * specularEffect);
+                float4 col = (albedo * diffuseLighting) + (albedo * globalIllumination) + (specularColor * specularEffect);
+
+                return col;
             }
             ENDCG
         }
