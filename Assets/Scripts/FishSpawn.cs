@@ -10,7 +10,7 @@ public class FishSpawn : MonoBehaviour
         if (other.tag == "Player")
         {
             BoatingManager.instance.canPlayerMove = false;
-            BoatingManager.instance.fishingMinigame.StartMinigame(enemyInfo.zonesAmount, enemyInfo.enemy);
+            BoatingManager.instance.fishingMinigame.StartMinigame(enemyInfo.zonesAmount, enemyInfo);
             Destroy(gameObject);
         }
     }

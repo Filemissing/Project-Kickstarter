@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,7 +15,7 @@ public class CombatManager : MonoBehaviour
             throw new System.Exception("Multiple instances of CombatManager detected!");
     }
 
-    [Header("Static references")]
+    [Header("Combatant setup referenes")]
     [SerializeField] GameObject enemyPos;
     public PlayerCombat playerCombat;
     public RectTransform enemyHealthBar;
@@ -22,17 +24,21 @@ public class CombatManager : MonoBehaviour
     [Header("Combat State")]
     public combatState currentCombatState = combatState.playerTurn;
 
-    public void StartCombat(Enemy enemy, bool wonMinigame)
+    [Header("Intro")]
+    [SerializeField] float introDuration;
+
+    public void StartCombat(EnemyInfo enemyInfo, bool wonMinigame)
     {
         currentCombatState = combatState.playerTurn;
-        this.enemy = Instantiate(enemy, enemyPos.transform);
-        this.enemy.healthBar = enemyHealthBar;
+        enemy = Instantiate(enemyInfo.enemy, enemyPos.transform);
+        enemy.healthBar = enemyHealthBar;
         if (!wonMinigame)
         {
             playerCombat.statusEffects.Add(new SkillIssuedEffect(2));
             playerCombat.statusEffects.Add(new EntangledEffect(1));
         }
-        playerCombat.StartTurn();
+
+        StartCoroutine(ShowIntro(enemyInfo));
     }
     public void EndCombat(CombatEndState endState)
     {
@@ -68,6 +74,16 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    IEnumerator ShowIntro(EnemyInfo info)
+    {
+        CombatUIManager.instance.ShowIntro(info);
+
+        yield return new WaitForSeconds(introDuration);
+
+        CombatUIManager.instance.ShowActionMenu();
+
+        playerCombat.StartTurn();
+    }
 }
 
 public enum combatState

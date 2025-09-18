@@ -22,20 +22,18 @@ public class GameManager : MonoBehaviour
 
     public int playerMicroPlastics;
 
-    public void EnterCombat(Enemy enemy, bool wonMinigame)
+    public void EnterCombat(EnemyInfo enemy, bool wonMinigame)
     {
         StartCoroutine(EnterCombatAsync(enemy, wonMinigame));
     }
 
-    public IEnumerator EnterCombatAsync(Enemy enemy, bool wonMinigame)
+    public IEnumerator EnterCombatAsync(EnemyInfo enemy, bool wonMinigame)
     {
         AsyncOperation op = SceneManager.LoadSceneAsync("CombatScene");
         while (!op.isDone)
             yield return null;
 
         currentPlayerMode = playerMode.inCombat;
-        Debug.Log(enemy);
-        Debug.Log(CombatManager.instance);
         CombatManager.instance.StartCombat(enemy, wonMinigame);
     }
 }

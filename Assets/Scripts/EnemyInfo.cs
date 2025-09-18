@@ -4,7 +4,8 @@ using UnityEngine;
 public class EnemyInfo : ScriptableObject
 {
     [Header("Basic Info")]
-    public string name;
+    new public string name;
+    public string catchPhrase;
     public Sprite sprite150px;
 
     [Header("Combat")]

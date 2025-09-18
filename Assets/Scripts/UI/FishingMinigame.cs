@@ -31,7 +31,7 @@ public class FishingMinigame : MonoBehaviour
     List<RectTransform> currentZones = new  List<RectTransform>();
     private float cursorSpeed = 0;
     private bool playingMinigame = false;
-    private Enemy currentEnemy;
+    private EnemyInfo currentEnemy;
     
     void TweenVisible()
     {
@@ -139,7 +139,7 @@ public class FishingMinigame : MonoBehaviour
     }
     
     [Button]
-    public void StartMinigame(int zonesAmount, Enemy enemy)
+    public void StartMinigame(int zonesAmount, EnemyInfo enemy)
     {
         // Prepare
         currentEnemy = enemy;
