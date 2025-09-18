@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
@@ -47,6 +48,9 @@ public class CombatManager : MonoBehaviour
                 Debug.Log("You fled the fight.");
                 break;
         }
+
+        GameManager.instance.currentPlayerMode = playerMode.boating;
+        SceneManager.LoadScene("Main");
     }
 
     public void NextTurn()
