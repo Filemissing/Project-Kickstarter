@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using NaughtyAttributes;
 using TMPro;
@@ -28,7 +29,7 @@ public class ShopFocusedPanel : MonoBehaviour
     private Sprite iconSprite;
     
     
-    enum UsedClass
+    public enum UsedClass
     {
         Weapon,
         Item,
@@ -50,14 +51,14 @@ public class ShopFocusedPanel : MonoBehaviour
             case UsedClass.Weapon:
                 titleString = weapon.name;
                 descriptionString = weapon.description;
-                costString = weapon.cost;
-                iconSprite = weapon.sprite;
+                costString = Convert.ToString(weapon.cost);
+                iconSprite = weapon.icon;
                 break;
             case UsedClass.Item:
                 titleString = item.name;
                 descriptionString = item.description;
-                costString = item.cost;
-                iconSprite = item.sprite;
+                costString = Convert.ToString(item.cost);
+                iconSprite = item.icon;
                 break;
             case UsedClass.Upgrade:
                 

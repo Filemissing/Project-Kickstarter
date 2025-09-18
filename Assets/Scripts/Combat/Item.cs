@@ -6,6 +6,7 @@ public class Item : ScriptableObject
     new public string name;
     public string description;
     public Sprite icon;
+    public int cost;
 
     [Tooltip("if false, will remove effect instead of adding")]
     public bool givesStatusEffect;
