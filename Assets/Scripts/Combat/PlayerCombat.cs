@@ -1,17 +1,22 @@
 using System.Linq;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 public class PlayerCombat : Combatant
 {
+    [Header("Oxygen")]
+    [SerializeField] int maxOxygen;
+    [SerializeField] int currentOxygen;
+    [SerializeField] RectTransform oxygenBar;
+
+    [Header("Player Stats")]
     public PlayerStats playerStats;
 
+    [Header("Player Specific Actions")]
     [SerializeField] BreatheAction breatheAction;
     [SerializeField] RunAction runAction;
 
-    [SerializeField] int maxOxygen;
-    [SerializeField] int currentOxygen;
-
-    public void Start()
+    public override void Start()
     {
         // start combat with max health and oxygen
         maxHP = playerStats.maxHealth;
@@ -19,6 +24,9 @@ public class PlayerCombat : Combatant
 
         maxOxygen = playerStats.maxOxygen;
         currentOxygen = maxOxygen;
+        UpdateOxygenBar();
+
+        base.Start();
     }
 
     public override void StartTurn()
@@ -46,6 +54,7 @@ public class PlayerCombat : Combatant
     public void UseOxygen(int amount)
     {
         currentOxygen -= amount;
+        UpdateOxygenBar();
         if (currentOxygen <= 0)
         {
             int deficit = Mathf.Abs(currentOxygen);
@@ -61,6 +70,13 @@ public class PlayerCombat : Combatant
         {
             currentOxygen = maxOxygen;
         }
+        UpdateOxygenBar();
+    }
+
+    void UpdateOxygenBar()
+    {
+        float newValue = (float)currentOxygen / maxOxygen;
+        oxygenBar.localScale = new Vector3(1f, Mathf.Clamp01(newValue), 1f);
     }
 
     public override void Die()

@@ -19,8 +19,11 @@ public class GameManager : MonoBehaviour
     public playerMode currentPlayerMode = playerMode.boating;
 
     public GameObject player;
-    [SerializeField] CanvasGroup boatingUI;
-    [SerializeField] CanvasGroup shopUI;
+    public Canvas boatingUI;
+    public Canvas shopUI;
+    public Notification notification;
+    public FishingMinigame fishingMinigame;
+    public bool canPlayerMove = true;
 
     public int playerMicroPlastics;
     

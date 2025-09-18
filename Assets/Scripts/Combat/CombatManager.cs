@@ -15,7 +15,8 @@ public class CombatManager : MonoBehaviour
     [Header("Static references")]
     [SerializeField] GameObject enemyPos;
     public PlayerCombat playerCombat;
-    public Enemy enemy;
+    public RectTransform enemyHealthBar;
+    [HideInInspector] public Enemy enemy;
 
     [Header("Combat State")]
     public combatState currentCombatState = combatState.playerTurn;
@@ -27,25 +28,11 @@ public class CombatManager : MonoBehaviour
         StartCombat(testEnemy);
     }
 
-    public void NextTurn()
-    {
-        switch (currentCombatState)
-        {
-            case combatState.playerTurn:
-                currentCombatState = combatState.enemyTurn;
-                enemy.ExecuteMove();
-                break;
-            case combatState.enemyTurn:
-                currentCombatState = combatState.playerTurn;
-                playerCombat.StartTurn();
-                break;
-        }
-    }
-
     public void StartCombat(Enemy enemy)
     {
         currentCombatState = combatState.playerTurn;
         this.enemy = Instantiate(enemy, enemyPos.transform);
+        this.enemy.healthBar = enemyHealthBar;
         playerCombat.StartTurn();
     }
     public void EndCombat(CombatEndState endState)
@@ -63,6 +50,22 @@ public class CombatManager : MonoBehaviour
                 break;
         }
     }
+
+    public void NextTurn()
+    {
+        switch (currentCombatState)
+        {
+            case combatState.playerTurn:
+                currentCombatState = combatState.enemyTurn;
+                enemy.ExecuteMove();
+                break;
+            case combatState.enemyTurn:
+                currentCombatState = combatState.playerTurn;
+                playerCombat.StartTurn();
+                break;
+        }
+    }
+
 }
 
 public enum combatState
