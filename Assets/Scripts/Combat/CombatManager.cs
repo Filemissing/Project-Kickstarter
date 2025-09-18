@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
@@ -21,18 +22,16 @@ public class CombatManager : MonoBehaviour
     [Header("Combat State")]
     public combatState currentCombatState = combatState.playerTurn;
 
-    [Header("Testing")]
-    public Enemy testEnemy;
-    private void Start()
-    {
-        StartCombat(testEnemy);
-    }
-
-    public void StartCombat(Enemy enemy)
+    public void StartCombat(Enemy enemy, bool wonMinigame)
     {
         currentCombatState = combatState.playerTurn;
         this.enemy = Instantiate(enemy, enemyPos.transform);
         this.enemy.healthBar = enemyHealthBar;
+        if (!wonMinigame)
+        {
+            playerCombat.statusEffects.Add(new SkillIssuedEffect(2));
+            playerCombat.statusEffects.Add(new EntangledEffect(1));
+        }
         playerCombat.StartTurn();
     }
     public void EndCombat(CombatEndState endState)
@@ -49,6 +48,9 @@ public class CombatManager : MonoBehaviour
                 Debug.Log("You fled the fight.");
                 break;
         }
+
+        GameManager.instance.currentPlayerMode = playerMode.boating;
+        SceneManager.LoadScene("Main");
     }
 
     public void NextTurn()
