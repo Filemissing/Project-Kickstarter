@@ -21,18 +21,16 @@ public class CombatManager : MonoBehaviour
     [Header("Combat State")]
     public combatState currentCombatState = combatState.playerTurn;
 
-    [Header("Testing")]
-    public Enemy testEnemy;
-    private void Start()
-    {
-        StartCombat(testEnemy);
-    }
-
-    public void StartCombat(Enemy enemy)
+    public void StartCombat(Enemy enemy, bool wonMinigame)
     {
         currentCombatState = combatState.playerTurn;
         this.enemy = Instantiate(enemy, enemyPos.transform);
         this.enemy.healthBar = enemyHealthBar;
+        if (!wonMinigame)
+        {
+            playerCombat.statusEffects.Add(new SkillIssuedEffect(2));
+            playerCombat.statusEffects.Add(new EntangledEffect(1));
+        }
         playerCombat.StartTurn();
     }
     public void EndCombat(CombatEndState endState)

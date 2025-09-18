@@ -68,7 +68,7 @@ public class FishingMinigame : MonoBehaviour
             {
                 StopMinigame();
                 print("WON");
-                GameManager.instance.EnterCombat(currentEnemy);
+                GameManager.instance.EnterCombat(currentEnemy, true);
             }
             
             zone.GetComponent<Image>().DOFade(0, completeZoneTweenDuration).SetEase(Ease.InCubic);
@@ -230,7 +230,7 @@ public class FishingMinigame : MonoBehaviour
                 IncorrectCursorClickTween();
                 StopMinigame();
                 print("LOST");
-                GameManager.instance.EnterCombat(currentEnemy);
+                GameManager.instance.EnterCombat(currentEnemy, false);
             }
         }
     }

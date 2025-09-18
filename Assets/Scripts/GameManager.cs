@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -29,11 +31,21 @@ public class GameManager : MonoBehaviour
     
     public int playerMaxOxygen;
 
-    public void EnterCombat(Enemy enemy)
+    public void EnterCombat(Enemy enemy, bool wonMinigame)
     {
-        SceneManager.LoadScene("CombatScene");
+        StartCoroutine(EnterCombatAsync(enemy, wonMinigame));
+    }
+
+    public IEnumerator EnterCombatAsync(Enemy enemy, bool wonMinigame)
+    {
+        AsyncOperation op = SceneManager.LoadSceneAsync("CombatScene");
+        while (!op.isDone)
+            yield return null;
+
         currentPlayerMode = playerMode.inCombat;
-        CombatManager.instance.StartCombat(enemy);
+        Debug.Log(enemy);
+        Debug.Log(CombatManager.instance);
+        CombatManager.instance.StartCombat(enemy, wonMinigame);
     }
 }
 public enum playerMode
