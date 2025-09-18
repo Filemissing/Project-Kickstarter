@@ -33,7 +33,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FoamHeight: 1
+    - _FoamHeight: 8.5
     - _FoamStrength: 5
     - _Glossiness: 0.5
     - _Metalic: 0.06
@@ -41,10 +41,12 @@ Material:
     - _NoiseIntensity: 0.1
     - _Smoothness: 0.15
     - _Speed: 10
+    - _Transparancy: 1
+    - _Transparency: 1
     - _WavesNum: 4
     m_Colors:
     - _Color: {r: 0.125, g: 0.32888347, b: 0.5, a: 1}
-    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamColor: {r: 0.17254902, g: 0.40392157, b: 0.5411765, a: 1}
     - _GlobalLight: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
