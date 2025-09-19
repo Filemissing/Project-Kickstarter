@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8305010742304158641}
   - component: {fileID: 3702919068124877934}
   m_Layer: 0
-  m_Name: Test
+  m_Name: Pufferfish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Test
-  maxHP: 50
-  currentHP: 50
+  maxHP: 40
+  currentHP: 40
   healthBar: {fileID: 0}
   attacks:
   - {fileID: 11400000, guid: 67c53b3b5e2d3f34f9c3c0cb782b8a6e, type: 2}

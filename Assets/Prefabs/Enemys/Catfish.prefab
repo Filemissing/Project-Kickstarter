@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8305010742304158641}
   - component: {fileID: 3702919068124877934}
   m_Layer: 0
-  m_Name: Test
+  m_Name: Catfish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,9 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Test
-  maxHP: 50
-  currentHP: 50
+  maxHP: 60
+  currentHP: 60
   healthBar: {fileID: 0}
   attacks:
-  - {fileID: 11400000, guid: 67c53b3b5e2d3f34f9c3c0cb782b8a6e, type: 2}
-  - {fileID: 11400000, guid: 669bb92c3289fdc4fad877ae7b0e4ac0, type: 2}
+  - {fileID: 11400000, guid: 72e1007b5fe8c7641acebbcf931550ec, type: 2}
+  - {fileID: 11400000, guid: dc4337fd7913516499cb286bf071f0e4, type: 2}
+  - {fileID: 11400000, guid: c3dcaed848643d7478fbb62b2dc2f0e7, type: 2}

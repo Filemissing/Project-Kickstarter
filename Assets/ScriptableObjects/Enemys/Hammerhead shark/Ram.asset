@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9441fdc390669eb438aa25759c6d1c45, type: 3}
-  m_Name: Poke
+  m_Name: Ram
   m_EditorClassIdentifier: 
-  name: Poke
+  name: Ram
   oxygenCost: 0
-  damage: 2
+  damage: 5
   givesStatusEffect: 0
   statusEffectType: 0
   effectLevel: 0

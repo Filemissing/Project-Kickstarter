@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8305010742304158641}
   - component: {fileID: 3702919068124877934}
   m_Layer: 0
-  m_Name: Test
+  m_Name: Hammerhead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,9 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Test
-  maxHP: 50
-  currentHP: 50
+  maxHP: 55
+  currentHP: 55
   healthBar: {fileID: 0}
   attacks:
-  - {fileID: 11400000, guid: 67c53b3b5e2d3f34f9c3c0cb782b8a6e, type: 2}
-  - {fileID: 11400000, guid: 669bb92c3289fdc4fad877ae7b0e4ac0, type: 2}
+  - {fileID: 11400000, guid: 820f0875619a17548b9817a7fde196ae, type: 2}
+  - {fileID: 11400000, guid: b586e218028e14d4b990e6ab687f88d9, type: 2}
+  - {fileID: 11400000, guid: 72a60d47360f2674e82823e8e3fc07dd, type: 2}
