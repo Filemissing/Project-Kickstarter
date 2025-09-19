@@ -1,9 +1,29 @@
 fileFormatVersion: 2
-guid: 98d80f367be782e469ee7fc38746b641
+guid: 23bbef6eac45b974fb9a6f79592b8e9a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Boat_1
+    second: {fileID: 2100000, guid: ed30838630df2b9449bfd02a82b2a795, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Boat_2
+    second: {fileID: 2100000, guid: 0acfb5b47e1afb440ac4ce065a5dd4fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Boat_3
+    second: {fileID: 2100000, guid: 125756242e7044649aae5a18d90d28fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Boat_4
+    second: {fileID: 2100000, guid: 8c4c4f8aa53ace947b72c0ab26c4cd9b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -33,7 +53,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.005
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -88,7 +108,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.005
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
