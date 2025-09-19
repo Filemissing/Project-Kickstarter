@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8305010742304158641}
   - component: {fileID: 3702919068124877934}
   m_Layer: 0
-  m_Name: Test
+  m_Name: Swordfish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,10 +99,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3779f116b81ca0941a499eae03c99717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Test
-  maxHP: 50
-  currentHP: 50
+  name: Swordfish
+  maxHP: 55
+  currentHP: 55
   healthBar: {fileID: 0}
   attacks:
-  - {fileID: 11400000, guid: 67c53b3b5e2d3f34f9c3c0cb782b8a6e, type: 2}
-  - {fileID: 11400000, guid: 669bb92c3289fdc4fad877ae7b0e4ac0, type: 2}
+  - {fileID: 11400000, guid: 8a79eb85dc16fb94481b61c035ccba92, type: 2}
+  - {fileID: 11400000, guid: 792a494460c3c4d44b229c7596f0827b, type: 2}
+  - {fileID: 11400000, guid: 5bf9c94f2622c784d83fe2c20ac89b69, type: 2}
