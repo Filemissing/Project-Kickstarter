@@ -33,8 +33,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FoamHeight: 1
-    - _FoamStrength: 5
+    - _FoamHeight: 0.5
+    - _FoamStrength: 10
     - _Glossiness: 0.5
     - _Metalic: 0.06
     - _Metallic: 0

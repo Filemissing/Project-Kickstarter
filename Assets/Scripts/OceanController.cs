@@ -42,4 +42,9 @@ public class OceanController : MonoBehaviour
         mat.SetVectorArray("_WaveData", waveData);
         mat.SetFloatArray("_WaveSpeeds", waveSpeeds);
     }
+
+    private void Update()
+    {
+        transform.position = Vector3.ProjectOnPlane(BoatingManager.instance.player.transform.position, Vector3.up);
+    }
 }
