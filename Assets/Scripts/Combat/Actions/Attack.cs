@@ -14,7 +14,9 @@ public class Attack : Action
     public bool isForced;
     public Attack followUpAttack;
 
+    [Header("Enemy specific")]
     public int chance;
+    public int oxygenDrain;
 
     public void OnEnable()
     {
@@ -79,6 +81,11 @@ public class Attack : Action
             finalDamage = Mathf.RoundToInt(finalDamage * wetEffect.damageMultiplier);
 
         target.Damage(finalDamage);
+
+        if(target is PlayerCombat playerCombat2)
+        {
+            playerCombat2.UseOxygen(oxygenDrain);
+        }
 
         //additional logic
         base.Execute(user, target);
