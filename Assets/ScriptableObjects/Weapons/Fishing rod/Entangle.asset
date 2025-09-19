@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9441fdc390669eb438aa25759c6d1c45, type: 3}
-  m_Name: Git Gud
+  m_Name: Entangle
   m_EditorClassIdentifier: 
-  name: Git Gud
+  name: Entangle
   oxygenCost: 5
   damage: 2
-  givesStatusEffect: 1
-  statusEffectType: 6
-  effectLevel: 10
+  givesStatusEffect: 0
+  statusEffectType: 3
+  effectLevel: 1
   hasFollowUp: 0
   isForced: 0
   followUpAttack: {fileID: 0}
+  chance: 0

@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
   maxHealth: 50
-  currentHealth: 50
-  maxOxygen: 20
-  currentOxygen: 20
-  currentWeapon: {fileID: 11400000, guid: 4daa652034dd2604cb48853f002f6241, type: 2}
+  maxOxygen: 25
+  currentWeapon: {fileID: 11400000, guid: 8254a940f8b626141942c39fb6dc0ee1, type: 2}
   unlockedWeapons:
   - {fileID: 11400000, guid: 4daa652034dd2604cb48853f002f6241, type: 2}
+  - {fileID: 11400000, guid: 8254a940f8b626141942c39fb6dc0ee1, type: 2}
   items:
   - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
   - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}

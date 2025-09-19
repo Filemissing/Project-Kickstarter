@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aee9d9477ae455a41863f79ea3837b23, type: 3}
-  m_Name: Knife
+  m_Name: Fishing Rod
   m_EditorClassIdentifier: 
-  name: Knife
+  name: Fishing rod
   icon: {fileID: 0}
-  description: A knife
+  description: 
   attacks:
-  - {fileID: 11400000, guid: e9366d77ba7472443b5e64aee58f60bd, type: 2}
-  - {fileID: 11400000, guid: e6d983be38f959d4b8ee92031a1a37c3, type: 2}
+  - {fileID: 11400000, guid: 5f7edd87a45427a4abdae5e2d27d05a4, type: 2}
+  - {fileID: 11400000, guid: 81e3db0d21df90a4388006d7fac03dd7, type: 2}

@@ -21,3 +21,5 @@ MonoBehaviour:
   hasFollowUp: 0
   isForced: 0
   followUpAttack: {fileID: 0}
+  chance: 25
+  oxygenDrain: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cleave
   m_EditorClassIdentifier: 
   name: Cleave
-  oxygenCost: 5
+  oxygenCost: 3
   damage: 4
   givesStatusEffect: 1
   statusEffectType: 1
@@ -21,3 +21,4 @@ MonoBehaviour:
   hasFollowUp: 0
   isForced: 0
   followUpAttack: {fileID: 0}
+  chance: 0
