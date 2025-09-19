@@ -24,8 +24,17 @@ public class Enemy : Combatant
 
         if(selectedAttack == null)
         {
-            int index = Random.Range(0, attacks.Count);
-            selectedAttack = attacks[index];
+            int rng = Random.Range(0, 101);
+            foreach (Attack attack in attacks)
+            {
+                if(rng < attack.chance)
+                {
+                    selectedAttack = attack;
+                    break;
+                }
+                else
+                    rng -= attack.chance;
+            }
         }
 
         Debug.Log(name + " is using the move: " + selectedAttack.name);

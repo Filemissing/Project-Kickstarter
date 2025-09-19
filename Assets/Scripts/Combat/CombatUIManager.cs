@@ -25,6 +25,7 @@ public class CombatUIManager : MonoBehaviour
     [SerializeField] TMP_Text title;
     [SerializeField] TMP_Text subTitle;
     [SerializeField] Image image;
+    [SerializeField] IntroAnimator introAnimator;
 
     [Header("Prefabs")]
     [SerializeField] Button buttonPrefab;
@@ -72,6 +73,8 @@ public class CombatUIManager : MonoBehaviour
         HideCanvasGroup(attackMenu);
         HideCanvasGroup(itemsMenu);
         ShowCanvasGroup(introGroup);
+
+        StartCoroutine(introAnimator.DoIntro());
     }
 
     void ShowCanvasGroup(CanvasGroup group)

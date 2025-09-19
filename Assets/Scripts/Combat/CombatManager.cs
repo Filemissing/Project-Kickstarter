@@ -38,7 +38,7 @@ public class CombatManager : MonoBehaviour
             playerCombat.statusEffects.Add(new EntangledEffect(1));
         }
 
-        StartCoroutine(ShowIntro(enemyInfo));
+        CombatUIManager.instance.ShowIntro(enemyInfo);
     }
     public void EndCombat(CombatEndState endState)
     {
@@ -72,17 +72,6 @@ public class CombatManager : MonoBehaviour
                 playerCombat.StartTurn();
                 break;
         }
-    }
-
-    IEnumerator ShowIntro(EnemyInfo info)
-    {
-        CombatUIManager.instance.ShowIntro(info);
-
-        yield return new WaitForSeconds(introDuration);
-
-        CombatUIManager.instance.ShowActionMenu();
-
-        playerCombat.StartTurn();
     }
 }
 

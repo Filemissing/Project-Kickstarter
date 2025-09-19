@@ -14,7 +14,7 @@ public class Attack : Action
     public bool isForced;
     public Attack followUpAttack;
 
-    
+    public int chance;
 
     public void OnEnable()
     {
