@@ -9,15 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9441fdc390669eb438aa25759c6d1c45, type: 3}
-  m_Name: Cleave
+  m_Script: {fileID: 11500000, guid: 4ad302ec6b64dc049865c482ceb9d6d8, type: 3}
+  m_Name: Bandage
   m_EditorClassIdentifier: 
-  name: Cleave
-  oxygenCost: 5
-  damage: 4
-  givesStatusEffect: 1
+  name: Bandage
+  description: It stops bleeding when applied correctly.
+  icon: {fileID: 167971707, guid: d21fd4d769c04fe4e8e6f7331029025a, type: 3}
+  cost: -20
+  givesStatusEffect: 0
   statusEffectType: 1
-  effectLevel: 2
-  hasFollowUp: 0
-  isForced: 0
-  followUpAttack: {fileID: 0}

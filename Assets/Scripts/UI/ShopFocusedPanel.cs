@@ -7,6 +7,11 @@ using UnityEngine.UI;
 
 public class ShopFocusedPanel : MonoBehaviour
 {
+    [Header("Settings")]
+    [SerializeField] Color purchaseButtonColor = Color.green;
+    [SerializeField] Color equipButtonColor = Color.yellow;
+    [SerializeField] Color equippedButtonColor = Color.grey;
+    
     [Header("Instances")]
     CanvasGroup parentCanvasGroup;
     RectTransform rectTransform;
@@ -14,6 +19,12 @@ public class ShopFocusedPanel : MonoBehaviour
     [SerializeField] TMP_Text cost;
     [SerializeField] TMP_Text description;
     [SerializeField] Image icon;
+    [SerializeField] private Image buttonImage;
+    [SerializeField] private TMP_Text buttonText;
+    [SerializeField] TMP_Text[] attackTexts;
+    [SerializeField] CanvasGroup[] attackCanvasGroups;
+    [SerializeField] TMP_Text detailsPanelText;
+    [SerializeField] CanvasGroup attacksParentCanvasGroup;
 
     private Vector2 defaultPosition;
 
@@ -28,7 +39,17 @@ public class ShopFocusedPanel : MonoBehaviour
     string descriptionString;
     private Sprite iconSprite;
     
-    
+    public ButtonType buttonType = ButtonType.Purchase;
+    public UsedClass usedClass;
+
+
+    public enum ButtonType
+    {
+        Purchase,
+        Equip,
+        Equipped
+    }
+        
     public enum UsedClass
     {
         Weapon,
@@ -42,6 +63,51 @@ public class ShopFocusedPanel : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         parentCanvasGroup = rectTransform.parent.GetComponent<CanvasGroup>();
         defaultPosition = rectTransform.anchoredPosition;
+    }
+
+    void UpdateButtonType()
+    {
+        switch (usedClass)
+        {
+            case UsedClass.Weapon:
+                bool hasWeapon = false;
+                bool didAThing = false;
+                
+                foreach (Weapon wepon in GameManager.instance.playerStats.unlockedWeapons)
+                {
+                    if (wepon == weapon)
+                    {
+                        hasWeapon = true;
+                    }
+                    
+                    if (weapon == GameManager.instance.playerStats.currentWeapon)
+                    {
+                        buttonType = ButtonType.Equipped;
+                        didAThing = true;
+                        break;
+                    }
+                }
+                
+                if (hasWeapon && !didAThing)
+                {
+                    buttonType = ButtonType.Equip;
+                    didAThing = true;
+                }
+                
+                if (!hasWeapon && !didAThing)
+                {
+                    buttonType = ButtonType.Purchase;
+                    didAThing = true;
+                }
+                
+                break;
+            case UsedClass.Item:
+                buttonType = ButtonType.Purchase;
+                break;
+            case UsedClass.Upgrade:
+                
+                break;
+        }
     }
 
     void ConvertData(UsedClass usedClass)
@@ -66,16 +132,117 @@ public class ShopFocusedPanel : MonoBehaviour
         }
     }
 
-    void UpdateVisualData()
+    public void UpdateVisualData()
     {
+        ConvertData(usedClass);
+        
         title.text = titleString;
         cost.text = costString;
         description.text = descriptionString;
         icon.sprite = iconSprite;
+
+        UpdateButtonType();
+        switch (buttonType)
+        {
+            case ButtonType.Purchase:
+                buttonText.text = "Purchase";
+                buttonImage.color = purchaseButtonColor;
+                break;
+            case ButtonType.Equip:
+                buttonText.text = "Equip";
+                buttonImage.color = equipButtonColor;
+                break;
+            case ButtonType.Equipped:
+                buttonText.text = "Equipped";
+                buttonImage.color = equippedButtonColor;
+                break;
+        }
+
+        switch (usedClass)
+        {
+            case UsedClass.Weapon:
+                attacksParentCanvasGroup.alpha = 1;
+                
+                for (int i = 0; i < attackTexts.Length; i++)
+                {
+                    TMP_Text attackText = attackTexts[i];
+                    CanvasGroup attackCanvasGroup = attackCanvasGroups[i];
+
+                    if (i < weapon.attacks.Count)
+                    {
+                        // Exists
+                        attackText.text = weapon.attacks[i].name;
+                        attackCanvasGroup.alpha = 1;
+                    }
+                    else
+                    {
+                        // Doesn't exist
+                        attackText.text = "";
+                        attackCanvasGroup.alpha = 0;
+                    }
+                }
+                break;
+            case UsedClass.Item:
+                attacksParentCanvasGroup.alpha = 0;
+                detailsPanelText.text = item.details;
+                break;
+            case UsedClass.Upgrade:
+                break;
+        }
+    }
+
+    public void OnClick()
+    {
+        switch (buttonType)
+        {
+            case ButtonType.Purchase:
+                int price = Convert.ToInt32(costString);
+                
+                if (GameManager.instance.playerMicroPlastics >= price)
+                {
+                    GameManager.instance.playerMicroPlastics -= price;
+                    
+                    switch (usedClass)
+                    {
+                        case UsedClass.Weapon:
+                            GameManager.instance.playerStats.unlockedWeapons.Add(weapon);
+                            GameManager.instance.playerStats.currentWeapon = weapon;
+                            
+                            UpdateVisualData();
+                            break;
+                        case UsedClass.Item:
+                            GameManager.instance.playerStats.items.Add(item);
+                            
+                            UpdateVisualData();
+                            break;
+                        case UsedClass.Upgrade:
+                
+                            break;
+                    }
+                }
+                break;
+            case ButtonType.Equip:
+                switch (usedClass)
+                {
+                    case UsedClass.Weapon:
+                        GameManager.instance.playerStats.currentWeapon = weapon;
+                            
+                        UpdateVisualData();
+                        break;
+                    case UsedClass.Item:
+                        break;
+                    case UsedClass.Upgrade:
+                
+                        break;
+                }
+                break;
+            case ButtonType.Equipped:
+                break;
+        }
     }
 
     [Button]
-    void Appear()
+    public void Appear()
     {
         parentCanvasGroup.alpha = 0;
         parentCanvasGroup.DOFade(1, .2f).SetEase(Ease.OutCubic);

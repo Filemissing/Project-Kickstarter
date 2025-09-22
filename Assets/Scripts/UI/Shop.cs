@@ -12,6 +12,7 @@ public class Shop : MonoBehaviour
     [SerializeField] RectTransform[] tabPanels;
     [SerializeField] CanvasGroup[] tabPanelCanvasGroups;
     [SerializeField] Image[] tabImages;
+    public ShopFocusedPanel shopFocusedPanel;
 
     [Header("Settings")]
     [SerializeField] private Color tabImageColorSelected;
@@ -22,6 +23,7 @@ public class Shop : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        ChangeTabs(tabs[0]);
     }
     
     [Button]
@@ -58,12 +60,12 @@ public class Shop : MonoBehaviour
                 break;
             }
         }
-        
+        /*
         foreach (Image tabImage in tabImages)
         {
             tabImage.material.color = tabImageColorDeselected;
         }
-        
+        */
         foreach (CanvasGroup tabPanelCanvasGroup in tabPanelCanvasGroups)
         {
             tabPanelCanvasGroup.alpha = 0;
@@ -75,6 +77,12 @@ public class Shop : MonoBehaviour
         tabPanelCanvasGroups[selectedTabIndex].interactable = true;
         tabPanelCanvasGroups[selectedTabIndex].blocksRaycasts = true;
         
-        tabImages[selectedTabIndex].color = tabImageColorSelected;
+        //tabImages[selectedTabIndex].color = tabImageColorSelected;
+
+        for (int i = 0; i < tabPanels[selectedTabIndex].GetChild(0).GetChild(0).childCount; i++)
+        {
+            ShopEntry entry = tabPanels[selectedTabIndex].GetChild(0).GetChild(0).GetChild(i).GetComponent<ShopEntry>();
+            entry.RefreshVisuals();
+        }
     }
 }

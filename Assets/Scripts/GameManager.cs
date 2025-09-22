@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public playerMode currentPlayerMode = playerMode.boating;
 
     public int playerMicroPlastics;
+    public PlayerStats playerStats;
 
     public void EnterCombat(Enemy enemy, bool wonMinigame)
     {
