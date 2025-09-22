@@ -1,5 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
@@ -12,7 +15,7 @@ public class CombatManager : MonoBehaviour
             throw new System.Exception("Multiple instances of CombatManager detected!");
     }
 
-    [Header("Static references")]
+    [Header("Combatant setup referenes")]
     [SerializeField] GameObject enemyPos;
     public PlayerCombat playerCombat;
     public RectTransform enemyHealthBar;
@@ -21,19 +24,21 @@ public class CombatManager : MonoBehaviour
     [Header("Combat State")]
     public combatState currentCombatState = combatState.playerTurn;
 
-    [Header("Testing")]
-    public Enemy testEnemy;
-    private void Start()
-    {
-        StartCombat(testEnemy);
-    }
+    [Header("Intro")]
+    [SerializeField] float introDuration;
 
-    public void StartCombat(Enemy enemy)
+    public void StartCombat(EnemyInfo enemyInfo, bool wonMinigame)
     {
         currentCombatState = combatState.playerTurn;
-        this.enemy = Instantiate(enemy, enemyPos.transform);
-        this.enemy.healthBar = enemyHealthBar;
-        playerCombat.StartTurn();
+        enemy = Instantiate(enemyInfo.enemy, enemyPos.transform);
+        enemy.healthBar = enemyHealthBar;
+        if (!wonMinigame)
+        {
+            playerCombat.statusEffects.Add(new SkillIssuedEffect(2));
+            playerCombat.statusEffects.Add(new EntangledEffect(1));
+        }
+
+        CombatUIManager.instance.ShowIntro(enemyInfo);
     }
     public void EndCombat(CombatEndState endState)
     {
@@ -49,6 +54,9 @@ public class CombatManager : MonoBehaviour
                 Debug.Log("You fled the fight.");
                 break;
         }
+
+        GameManager.instance.currentPlayerMode = playerMode.boating;
+        SceneManager.LoadScene("Main");
     }
 
     public void NextTurn()
@@ -65,7 +73,6 @@ public class CombatManager : MonoBehaviour
                 break;
         }
     }
-
 }
 
 public enum combatState

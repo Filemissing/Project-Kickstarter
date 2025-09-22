@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcccd409beb0a3548a875514391f39f0, type: 3}
+  m_Name: Pufferfish
+  m_EditorClassIdentifier: 
+  name: Pufferfish
+  catchPhrase: is gonna blow you up
+  sprite150px: {fileID: 21300000, guid: 12a89ad7094586b409f73c02b53b7e25, type: 3}
+  enemy: {fileID: 3702919068124877934, guid: 0a273dfebf8d24440ae165cee5638750, type: 3}
+  rarity: 1
+  zonesAmount: 3
+  sprite500px: {fileID: 21300000, guid: 12a89ad7094586b409f73c02b53b7e25, type: 3}
+  sprite100px: {fileID: 21300000, guid: 12a89ad7094586b409f73c02b53b7e25, type: 3}
+  scientificName: Tetraodontidae
+  endangerment: 0
+  naturalHabitat: {fileID: 21300000, guid: 3b679fa5b6f53d84585014b1451727fb, type: 3}
+  description: "These freshwater species are found in disjunct tropical regions of
+    South America (Colomesus asellus and Colomesus tocantinensis), Africa (six Tetraodon
+    species), and Southeast Asia (Auriglobus, Carinotetraodon, Dichotomyctere, Leiodon
+    and Pao). Some species are endangered : Takifugu chinensis, Redline pufferfish
+    Small to medium less than 50 cm The majority of pufferfish species are toxic,
+    with some among the most poisonous vertebrates in the world. some species is
+    considered a delicacy in Japan (as \u6CB3\u8C5A, fugu), Korea (as \uBCF5, bok,
+    or \uBCF5\uC5B4, bogeo), and China (as \u6CB3\u8C5A, h\xE9t\xFAn) when prepared
+    by specially trained chefs who know which part is safe to eat and in what quantity
+    The species Torquigener albomaculosus was described by David Attenborough as
+    \"the greatest artist of the animal kingdom\" due to the males' unique habit
+    of wooing females by creating nests in sand composed of complex geometric designs.
+    The puffer's excellent eyesight, combined with this speed burst, is the first
+    and most important defense against predators. The pufferfish's secondary defense
+    mechanism, used if successfully pursued, is to fill its extremely elastic stomach
+    with water (or air when outside the water) until it is much larger and almost
+    spherical in shape. Even if they are not visible when the puffer is not inflated,
+    all puffers have pointed spines Traditionally, their diet consists mostly of
+    algae and small invertebrates. Larger species of pufferfish are able to use their
+    beak-like front teeth to break open clams, mussels, and other shellfish "

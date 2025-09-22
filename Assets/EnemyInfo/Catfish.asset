@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcccd409beb0a3548a875514391f39f0, type: 3}
+  m_Name: Catfish
+  m_EditorClassIdentifier: 
+  name: Catfish
+  catchPhrase: Meow
+  sprite150px: {fileID: 21300000, guid: 242c986f86d41a843aa706ca8f5b9904, type: 3}
+  enemy: {fileID: 3702919068124877934, guid: 888615ac1c4ce2d4287818ec4d704149, type: 3}
+  rarity: 1
+  zonesAmount: 3
+  sprite500px: {fileID: 21300000, guid: 242c986f86d41a843aa706ca8f5b9904, type: 3}
+  sprite100px: {fileID: 21300000, guid: 242c986f86d41a843aa706ca8f5b9904, type: 3}
+  scientificName: Ariopsis felis
+  endangerment: 0
+  naturalHabitat: {fileID: 21300000, guid: 54f8289d8bdf7984494e723c11751462, type: 3}
+  description: 'The catfish can be found in all sorts of waters! Their ancestry comes
+    from South America.   They are not endangered, except for some rare types! Endangered
+    species of catfish - velvet catfish, mountain catfish, Mekong giant catfish 
+    The catfish have gained their name for the prominent whiskers by their mouths!
+    They have no scales, only smooth skin. Catfish are nocturnal. Catfish can make
+    sounds with their mouths, similar to drumming - they use these to chat with the
+    other fish! Due to their negative buoyancy, they sink rather than float and are
+    bottom feeders. Rather than chomping, they suck down their prey.   Eats anything
+    - both fauna and flora (though its food menu mainly consists of small crustaceans)!   '
