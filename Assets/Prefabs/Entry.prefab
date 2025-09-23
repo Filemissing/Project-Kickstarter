@@ -35,7 +35,6 @@ RectTransform:
   m_Children:
   - {fileID: 2813926549321114350}
   - {fileID: 7727917298305725509}
-  - {fileID: 8578116568221353703}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -151,6 +150,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyInfo: {fileID: 0}
   encyclopedia: {fileID: 0}
+  isHidden: 1
+  blurRadius: 16
+  blackness: 1
+  title: {fileID: 2793007545586910132}
+  image: {fileID: 5498573187676987774}
 --- !u!114 &1781379880300220646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,9 +167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78e03c193cbc0a4891fe165a0300415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressScale: 0.85
-  pressDuration: 0.1
-  releaseDuration: 0.15
 --- !u!1 &3435975617368863694
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +196,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8578116568221353703}
   m_Father: {fileID: 1780794585416979515}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
@@ -402,18 +404,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9138816076299440302}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1780794585416979515}
+  m_Father: {fileID: 7727917298305725509}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 10, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &598414210934927178
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -434,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: ce700c89c5da8614d8c0ffebe590c48f, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}

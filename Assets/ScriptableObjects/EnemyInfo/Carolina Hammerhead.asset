@@ -19,7 +19,7 @@ MonoBehaviour:
   rarity: 1
   zonesAmount: 4
   sprite500px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
-  sprite100px: {fileID: 21300000, guid: ce4e171715a7eac459e92e9594284d16, type: 3}
+  sprite100px: {fileID: 21300000, guid: 55c70f953c07e9f43b3b0b875491699d, type: 3}
   scientificName: Sphyrna gilberti
   endangerment: 2
   naturalHabitat: {fileID: 21300000, guid: a5f4cc6a36c24ee4b89016ed1a2e8278, type: 3}

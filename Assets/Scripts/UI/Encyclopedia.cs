@@ -102,7 +102,7 @@ public class Encyclopedia : MonoBehaviour
             
             // Visuals
             newEntry.transform.GetChild(0).GetComponent<TMP_Text>().text = enemyInfos[i].name;
-            newEntry.transform.GetChild(2).GetComponent<Image>().sprite = enemyInfos[i].sprite150px;
+            newEntry.transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = enemyInfos[i].sprite150px;
             
             entries.Add(newEntry);
         }
