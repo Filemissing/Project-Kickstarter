@@ -4,7 +4,12 @@ using System.Linq;
 
 public class Enemy : Combatant
 {
+    public EnemyInfo enemyInfo;
+
     public List<Attack> attacks = new();
+
+    public RectTransform moveNameSpace;
+    public MoveNameAnimator moveNamePrefab;
 
     public override void Die()
     {
@@ -37,7 +42,9 @@ public class Enemy : Combatant
             }
         }
 
-        Debug.Log(name + " is using the move: " + selectedAttack.name);
+        //Debug.Log(name + " is using the move: " + selectedAttack.name);
+        MoveNameAnimator moveName = Instantiate(moveNamePrefab, moveNameSpace);
+        moveName.text.text = selectedAttack.name;
 
         selectedAttack.Execute(this, CombatManager.instance.playerCombat);
     }

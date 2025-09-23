@@ -10,20 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9441fdc390669eb438aa25759c6d1c45, type: 3}
-<<<<<<<< HEAD:Assets/ScriptableObjects/Weapons/Fishing rod/Entangle.asset
-  m_Name: Entangle
-  m_EditorClassIdentifier: 
-  name: Entangle
-  oxygenCost: 5
-  damage: 2
-  givesStatusEffect: 0
-  statusEffectType: 3
-  effectLevel: 1
-  hasFollowUp: 0
-  isForced: 0
-  followUpAttack: {fileID: 0}
-  chance: 0
-========
   m_Name: Throw
   m_EditorClassIdentifier: 
   name: Throw
@@ -35,4 +21,3 @@ MonoBehaviour:
   hasFollowUp: 1
   isForced: 0
   followUpAttack: {fileID: 11400000, guid: ab615f16996916f4a83e9d3d5e981e0d, type: 2}
->>>>>>>> Shop:Assets/ScriptableObjects/Weapons/Trident/Throw.asset

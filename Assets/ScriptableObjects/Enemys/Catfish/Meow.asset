@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9441fdc390669eb438aa25759c6d1c45, type: 3}
   m_Name: Meow
   m_EditorClassIdentifier: 
-  name: 
+  name: Meow
   oxygenCost: 0
   damage: 0
-  givesStatusEffect: 0
+  givesStatusEffect: 1
   statusEffectType: 4
   effectLevel: 3
   hasFollowUp: 0

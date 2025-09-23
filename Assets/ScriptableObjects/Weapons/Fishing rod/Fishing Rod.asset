@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Fishing rod
   icon: {fileID: 0}
   description: 
+  cost: 0
   attacks:
   - {fileID: 11400000, guid: 5f7edd87a45427a4abdae5e2d27d05a4, type: 2}
   - {fileID: 11400000, guid: 81e3db0d21df90a4388006d7fac03dd7, type: 2}

@@ -11,6 +11,8 @@ public abstract class StatusEffect
             target.statusEffects.Find(se => se == this).level += 1;
         else
             target.statusEffects.Add(this);
+
+        target.UpdateStatusBar(this, true);
     }
 
     public void RemoveEffectLevel(Combatant target, int level)
@@ -19,7 +21,14 @@ public abstract class StatusEffect
         {
             target.statusEffects.Find(se => se == this).level -= level;
             if(target.statusEffects.Find(se => se == this).level <= 0)
+            {
                 target.statusEffects.Remove(this);
+                target.UpdateStatusBar(this, false);
+            }
+            else
+            {
+                target.UpdateStatusBar(this, true);
+            }
         }
     }
 
@@ -28,6 +37,7 @@ public abstract class StatusEffect
         if(target.statusEffects.Contains(this))
         {
             target.statusEffects.Remove(this);
+            target.UpdateStatusBar(this, false);
         }
     }
 
