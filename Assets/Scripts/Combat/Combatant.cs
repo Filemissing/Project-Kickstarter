@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using NaughtyAttributes;
+using UnityEngine.UI;
 
 public abstract class Combatant : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public abstract class Combatant : MonoBehaviour
     [SerializeField] protected int maxHP;
     [SerializeField] protected int currentHP;
     public RectTransform healthBar;
+    public RectTransform statusBar;
+    public StatusEffectIcon statusIconPrefab;
 
     public List<StatusEffect> statusEffects = new();
 
@@ -67,6 +70,39 @@ public abstract class Combatant : MonoBehaviour
     {
         float newValue = (float)currentHP / (float)maxHP;
         healthBar.localScale = new Vector3(1f, Mathf.Clamp01(newValue), 1f);
+    }
+    public void UpdateStatusBar(StatusEffect effect, bool added)
+    {
+        StatusEffectIcon[] icons = statusBar.GetComponentsInChildren<StatusEffectIcon>();
+        StatusEffectIcon currentIcon = icons.Where((icon) => icon.statusEffect == effect).FirstOrDefault();
+
+        if (added)
+        {
+            if (currentIcon)
+            {
+                currentIcon.statusEffect.level = effect.level;
+            }
+            else
+            {
+                currentIcon = Instantiate(statusIconPrefab, statusBar);
+                currentIcon.statusEffect = effect;
+            }
+            currentIcon.OnChanged();
+        }
+        else
+        {
+            if (currentIcon)
+            {
+                for (int i = 0; i < icons.Length - 1; i++)
+                {
+                    if (icons[i] == currentIcon)
+                    {
+                        Destroy(statusBar.GetChild(i));
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     // testing purposes only

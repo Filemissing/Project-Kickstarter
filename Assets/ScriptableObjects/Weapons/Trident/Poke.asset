@@ -10,16 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9441fdc390669eb438aa25759c6d1c45, type: 3}
-<<<<<<<< HEAD:Assets/ScriptableObjects/Enemys/Hammerhead shark/Bite.asset
-  m_Name: Bite
-  m_EditorClassIdentifier: 
-  name: Bite
-  oxygenCost: 0
-  damage: 5
-  givesStatusEffect: 1
-  statusEffectType: 1
-  effectLevel: 2
-========
   m_Name: Poke
   m_EditorClassIdentifier: 
   name: Poke
@@ -28,7 +18,6 @@ MonoBehaviour:
   givesStatusEffect: 0
   statusEffectType: 0
   effectLevel: 0
->>>>>>>> Shop:Assets/ScriptableObjects/Weapons/Trident/Poke.asset
   hasFollowUp: 0
   isForced: 0
   followUpAttack: {fileID: 0}

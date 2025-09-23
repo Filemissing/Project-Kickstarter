@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9441fdc390669eb438aa25759c6d1c45, type: 3}
   m_Name: Imaple
   m_EditorClassIdentifier: 
-  name: 
+  name: Impale
   oxygenCost: 0
   damage: 8
-  givesStatusEffect: 0
+  givesStatusEffect: 1
   statusEffectType: 1
   effectLevel: 3
   hasFollowUp: 0

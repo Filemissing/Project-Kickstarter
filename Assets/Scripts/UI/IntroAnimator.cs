@@ -26,7 +26,11 @@ public class IntroAnimator : MonoBehaviour
     [SerializeField] float titlesSpeed;
     [SerializeField] float titlesWait;
 
+    [Header("End")]
+    [SerializeField] CanvasGroup wholeGroup;
+    [SerializeField] float endScale;
     [SerializeField] float endSpeed;
+
 
     private void Awake()
     {
@@ -40,7 +44,7 @@ public class IntroAnimator : MonoBehaviour
         yield return new WaitForSeconds(splashPanelSpeed);
 
         picture.DOFade(1, pictureFadeDuration).SetEase(Ease.InExpo);
-        picture.rectTransform.DOScale(1, pictureSpeed).SetEase(Ease.OutElastic);
+        picture.rectTransform.DOScale(1, pictureSpeed).SetEase(Ease.OutBack);
         yield return new WaitForSeconds(pictureWait);
 
         title.rectTransform.DOMove(new Vector3(100, 100 + resolution.y / 2, 0), titlesSpeed).SetEase(Ease.InExpo);
@@ -52,7 +56,17 @@ public class IntroAnimator : MonoBehaviour
         title.rectTransform.DOKill();
         subTitle.rectTransform.DOKill();
 
-        transform.DOMove((Vector3)resolution * 2, endSpeed).SetEase(Ease.InExpo);
+
+        RectTransform rectTransform = transform as RectTransform;
+
+        wholeGroup.alpha = 1;
+        wholeGroup.DOFade(0, endSpeed).SetEase(Ease.OutCubic);
+        wholeGroup.interactable = false;
+        wholeGroup.blocksRaycasts = false;
+
+        rectTransform.localScale = Vector3.one;
+        rectTransform.DOScale(Vector2.one * endScale, endSpeed).SetEase(Ease.OutCubic);
+
         yield return new WaitForSeconds(endSpeed);
 
         CombatUIManager.instance.ShowActionMenu();

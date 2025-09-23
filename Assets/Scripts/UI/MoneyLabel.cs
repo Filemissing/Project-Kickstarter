@@ -15,6 +15,6 @@ public class MoneyLabel : MonoBehaviour
     
     void Update()
     {
-        text.text = Convert.ToString(GameManager.instance.playerMicroPlastics) + endString;
+        text.text = Convert.ToString(GameManager.instance.playerStats.currency) + endString;
     }
 }

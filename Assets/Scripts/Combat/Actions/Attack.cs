@@ -48,13 +48,7 @@ public class Attack : Action
         // apply possible status effect to target
         if (givesStatusEffect && statusEffect != null)
         {
-            if(target.statusEffects.Contains(statusEffect))
-                target.statusEffects.Find(e => e == statusEffect).level += effectLevel;
-            else
-            {
-                target.statusEffects.Add(statusEffect);
-                target.statusEffects.Find(e => e == statusEffect).level = effectLevel;
-            }
+            statusEffect.ApplyEffect(target);
         }
 
         if (hasFollowUp && followUpAttack != null)

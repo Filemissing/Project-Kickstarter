@@ -17,6 +17,5 @@ MonoBehaviour:
   description: Freshly scavenged from the city of Atlantis.
   cost: 100000
   attacks:
-  - {fileID: 11400000, guid: 8990c5dd3d5733e4d906277e2420aa65, type: 2}
-  - {fileID: 11400000, guid: ab615f16996916f4a83e9d3d5e981e0d, type: 2}
+  - {fileID: 11400000, guid: 3642db3abc27ee54785b678483a238cb, type: 2}
   - {fileID: 11400000, guid: b79d7776c39da354fb4f0c4c8e5586f9, type: 2}
