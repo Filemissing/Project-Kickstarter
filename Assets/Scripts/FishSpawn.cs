@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class FishSpawn : MonoBehaviour
 {
-    public string fish;
+    public EnemyInfo enemyInfo;
     public FishSpawnSpawner fishSpawnSpawner;
     
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            print("MINIGAMING");
-            // Play minigame with fish values
+            BoatingManager.instance.canPlayerMove = false;
+            BoatingManager.instance.fishingMinigame.StartMinigame(enemyInfo.zonesAmount, enemyInfo);
+            Destroy(gameObject);
         }
     }
 }
