@@ -8,11 +8,10 @@ public class ButtonEffects : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 {
     private RectTransform rectTransform;
     private Vector3 originalScale;
-
-    [Header("Settings")]
-    [SerializeField] private float pressScale = 0.85f;
-    [SerializeField] private float pressDuration = 0.1f;
-    [SerializeField] private float releaseDuration = 0.15f;
+    
+    private float pressScale = 0.85f;
+    private float pressDuration = 0.1f;
+    private float releaseDuration = 0.15f;
 
     void Awake()
     {

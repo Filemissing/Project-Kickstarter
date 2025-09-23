@@ -13,7 +13,7 @@ public class BoatingManager : MonoBehaviour
 
     public GameObject player;
     public Canvas boatingUI;
-    public Canvas shopUI;
+    public Shop shop;
     public Notification notification;
     public FishingMinigame fishingMinigame;
     public bool canPlayerMove = true;

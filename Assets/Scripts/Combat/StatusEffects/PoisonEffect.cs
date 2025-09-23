@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Poison Effect", menuName = "Combat/Status Effects/PoisonEffect")]
 public class PoisonEffect : StatusEffect
 {
     public PoisonEffect(int level) => this.level = level;
