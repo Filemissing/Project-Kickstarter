@@ -7,37 +7,47 @@ public abstract class StatusEffect
 
     public void ApplyEffect(Combatant target)
     {
-        if(target.statusEffects.Contains(this))
-            target.statusEffects.Find(se => se == this).level += 1;
-        else
-            target.statusEffects.Add(this);
+        StatusEffect existing = target.statusEffects.Find(se => se.icon == icon);
 
-        target.UpdateStatusBar(this, true);
+        if (existing != null)
+        {
+            existing.level += level;
+            target.UpdateStatusBar(existing, true);
+        }
+        else
+        {
+            target.statusEffects.Add(this);
+            target.UpdateStatusBar(this, true);
+        }
     }
 
     public void RemoveEffectLevel(Combatant target, int level)
     {
-        if(target.statusEffects.Contains(this))
+        StatusEffect existing = target.statusEffects.Find(se => se.icon == icon);
+
+        if (existing != null)
         {
-            target.statusEffects.Find(se => se == this).level -= level;
-            if(target.statusEffects.Find(se => se == this).level <= 0)
+            existing.level -= level;
+            if(existing.level <= 0)
             {
-                target.statusEffects.Remove(this);
-                target.UpdateStatusBar(this, false);
+                target.statusEffects.Remove(existing);
+                target.UpdateStatusBar(existing, false);
             }
             else
             {
-                target.UpdateStatusBar(this, true);
+                target.UpdateStatusBar(existing, true);
             }
         }
     }
 
     public void RemoveEffect(Combatant target)
     {
-        if(target.statusEffects.Contains(this))
+        StatusEffect existing = target.statusEffects.Find(se => se.icon == icon);
+
+        if (existing != null)
         {
-            target.statusEffects.Remove(this);
-            target.UpdateStatusBar(this, false);
+            target.statusEffects.Remove(existing);
+            target.UpdateStatusBar(existing, false);
         }
     }
 
