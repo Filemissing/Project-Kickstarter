@@ -100,6 +100,17 @@ public class CombatUIManager : MonoBehaviour
         AddBackButton(attackMenu.transform);
 
         Attack[] attacks = GetAttacks();
+        Attack forcedAttack = attacks.Where(a => a.isForced).FirstOrDefault();
+
+        if (forcedAttack != null)
+        {
+            Button button = Instantiate(buttonPrefab, attackMenu.transform);
+            button.GetComponentInChildren<TMP_Text>().text = forcedAttack.name;
+
+            button.onClick.AddListener(delegate { forcedAttack.Execute(CombatManager.instance.playerCombat, CombatManager.instance.enemy); });
+            return;
+        }
+
         for (int i = 0; i < attacks.Length; i++)
         {
             Button button = Instantiate(buttonPrefab, attackMenu.transform);

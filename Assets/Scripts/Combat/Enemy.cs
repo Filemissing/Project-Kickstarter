@@ -32,7 +32,7 @@ public class Enemy : Combatant
             int rng = Random.Range(0, 101);
             foreach (Attack attack in attacks)
             {
-                if(rng < attack.chance)
+                if(rng <= attack.chance)
                 {
                     selectedAttack = attack;
                     break;

@@ -11,12 +11,11 @@ public class Item : ScriptableObject
 
     [Tooltip("if false, will remove effect instead of adding")]
     public bool givesStatusEffect;
-    public StatusEffectType statusEffectType;
-    StatusEffect statusEffect;
+    public StatusEffectType statusEffectType; 
 
-    private void OnEnable()
+    public void Use(Combatant user, Combatant target)
     {
-        statusEffect = statusEffectType switch
+        StatusEffect statusEffect = statusEffectType switch
         {
             StatusEffectType.Bleed => new BleedEffect(1),
             StatusEffectType.Poison => new PoisonEffect(1),
@@ -26,11 +25,8 @@ public class Item : ScriptableObject
             StatusEffectType.SkillIssued => new SkillIssuedEffect(1),
             _ => null,
         };
-    }
 
-    public void Use(Combatant user, Combatant target)
-    {
-        if(givesStatusEffect)
+        if (givesStatusEffect)
         {
             statusEffect.ApplyEffect(target);
         }

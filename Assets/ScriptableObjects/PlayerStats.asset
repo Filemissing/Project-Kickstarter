@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b024d12a4c3b9c4c9c62dd1a4724cd3, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  maxOxygen: 25
-  currentWeapon: {fileID: 11400000, guid: 8254a940f8b626141942c39fb6dc0ee1, type: 2}
+  maxHealth: 999999999
+  maxOxygen: 999999999
+  currency: 0
+  currentWeapon: {fileID: 11400000, guid: 6310158093c41ef488966a8ee42c3627, type: 2}
   unlockedWeapons:
   - {fileID: 11400000, guid: 4daa652034dd2604cb48853f002f6241, type: 2}
   - {fileID: 11400000, guid: 8254a940f8b626141942c39fb6dc0ee1, type: 2}
   items:
-  - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
-  - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
   - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
   - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}

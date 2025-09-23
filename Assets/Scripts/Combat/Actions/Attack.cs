@@ -7,7 +7,6 @@ public class Attack : Action
 
     public bool givesStatusEffect;
     public StatusEffectType statusEffectType;
-    StatusEffect statusEffect;
     public int effectLevel;
 
     public bool hasFollowUp;
@@ -17,20 +16,6 @@ public class Attack : Action
     [Header("Enemy specific")]
     public int chance;
     public int oxygenDrain;
-
-    public void OnEnable()
-    {
-        statusEffect = statusEffectType switch
-        {
-            StatusEffectType.Bleed => new BleedEffect(effectLevel),
-            StatusEffectType.Poison => new PoisonEffect(effectLevel),
-            StatusEffectType.Entangled => new EntangledEffect(effectLevel),
-            StatusEffectType.Confused => new ConfusedEffect(effectLevel),
-            StatusEffectType.Wet => new WetEffect(effectLevel),
-            StatusEffectType.SkillIssued => new SkillIssuedEffect(effectLevel),
-            _ => null,
-        };
-    }
 
     public override void Execute(Combatant user, Combatant target)
     {
@@ -46,8 +31,18 @@ public class Attack : Action
         }
 
         // apply possible status effect to target
-        if (givesStatusEffect && statusEffect != null)
+        if (givesStatusEffect)
         {
+            StatusEffect statusEffect = statusEffectType switch
+            {
+                StatusEffectType.Bleed => new BleedEffect(effectLevel),
+                StatusEffectType.Poison => new PoisonEffect(effectLevel),
+                StatusEffectType.Entangled => new EntangledEffect(effectLevel),
+                StatusEffectType.Confused => new ConfusedEffect(effectLevel),
+                StatusEffectType.Wet => new WetEffect(effectLevel),
+                StatusEffectType.SkillIssued => new SkillIssuedEffect(effectLevel),
+                _ => null,
+            };
             statusEffect.ApplyEffect(target);
         }
 

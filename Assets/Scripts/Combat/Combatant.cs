@@ -74,7 +74,7 @@ public abstract class Combatant : MonoBehaviour
     public void UpdateStatusBar(StatusEffect effect, bool added)
     {
         StatusEffectIcon[] icons = statusBar.GetComponentsInChildren<StatusEffectIcon>();
-        StatusEffectIcon currentIcon = icons.Where((icon) => icon.statusEffect == effect).FirstOrDefault();
+        StatusEffectIcon currentIcon = icons.Where((icon) => icon.statusEffect.icon == effect.icon).FirstOrDefault();
 
         if (added)
         {
@@ -93,11 +93,11 @@ public abstract class Combatant : MonoBehaviour
         {
             if (currentIcon)
             {
-                for (int i = 0; i < icons.Length - 1; i++)
+                for (int i = 0; i < icons.Length; i++)
                 {
                     if (icons[i] == currentIcon)
                     {
-                        Destroy(statusBar.GetChild(i));
+                        Destroy(statusBar.GetChild(i).gameObject);
                         break;
                     }
                 }

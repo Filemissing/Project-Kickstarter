@@ -16,7 +16,6 @@ public class StatusEffectIcon : MonoBehaviour
 
     public void OnChanged()
     {
-        Debug.Log(statusEffect.icon);
         image.sprite = statusEffect.icon;
         text.text = statusEffect.level.ToString();
     }
