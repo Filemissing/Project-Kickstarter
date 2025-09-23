@@ -10,6 +10,7 @@ public class Encyclopedia : MonoBehaviour
     [Header("EnemyInfos")]
     public List<EnemyInfo> enemyInfos = new List<EnemyInfo>();
     [SerializeField] private List<EncyclopediaEntry> entries = new List<EncyclopediaEntry>();
+    [SerializeField] private EnemyInfo nothingEnemyInfo;
     
     [Header("Instances")]
     [SerializeField] private Image image500px;
@@ -36,7 +37,7 @@ public class Encyclopedia : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         UpdateEntrys();
-        UpdateFishPanel(entries[0].enemyInfo);
+        UpdateFishPanel(nothingEnemyInfo);
     }
 
     [Button]

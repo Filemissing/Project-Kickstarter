@@ -20,7 +20,7 @@ MonoBehaviour:
   rarity: 1
   zonesAmount: 3
   sprite500px: {fileID: 21300000, guid: 12a89ad7094586b409f73c02b53b7e25, type: 3}
-  sprite100px: {fileID: 21300000, guid: 12a89ad7094586b409f73c02b53b7e25, type: 3}
+  sprite100px: {fileID: 21300000, guid: 8fe2441237b097949b69b560d59e4a77, type: 3}
   scientificName: Tetraodontidae
   endangerment: 0
   naturalHabitat: {fileID: 21300000, guid: 3b679fa5b6f53d84585014b1451727fb, type: 3}

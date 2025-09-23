@@ -176,9 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78e03c193cbc0a4891fe165a0300415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressScale: 0.85
-  pressDuration: 0.1
-  releaseDuration: 0.15
 --- !u!114 &94830559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 428229895}
   boatingUI: {fileID: 182359627}
-  shopUI: {fileID: 0}
+  shop: {fileID: 0}
   notification: {fileID: 1066635957}
   fishingMinigame: {fileID: 768026924}
   canPlayerMove: 1
@@ -1087,6 +1084,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6517789206965796854, guid: 737422c2802b15f4fbd89160c93558a2, type: 3}
+      propertyPath: enemyInfos.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6517789206965796854, guid: 737422c2802b15f4fbd89160c93558a2, type: 3}
+      propertyPath: 'enemyInfos.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: bac6789efea5cf14a8b9ff7822592c1a, type: 2}
+    - target: {fileID: 6517789206965796854, guid: 737422c2802b15f4fbd89160c93558a2, type: 3}
+      propertyPath: 'enemyInfos.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b8bfe3230d5c6b740b5879c12d6d3dd3, type: 2}
     - target: {fileID: 6734973673323438240, guid: 737422c2802b15f4fbd89160c93558a2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1678,7 +1687,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPlayerMode: 0
-  playerMicroPlastics: 0
+  playerStats: {fileID: 11400000, guid: b8ee730195021e845854e5c22abb4021, type: 2}
+  unlockedEnemyInfos: []
 --- !u!4 &1680336887
 Transform:
   m_ObjectHideFlags: 0

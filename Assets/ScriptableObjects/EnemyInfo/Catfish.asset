@@ -20,7 +20,7 @@ MonoBehaviour:
   rarity: 1
   zonesAmount: 3
   sprite500px: {fileID: 21300000, guid: 242c986f86d41a843aa706ca8f5b9904, type: 3}
-  sprite100px: {fileID: 21300000, guid: 242c986f86d41a843aa706ca8f5b9904, type: 3}
+  sprite100px: {fileID: 21300000, guid: 918417c580fc4dc44b1bfceb90d31ef2, type: 3}
   scientificName: Ariopsis felis
   endangerment: 0
   naturalHabitat: {fileID: 21300000, guid: 54f8289d8bdf7984494e723c11751462, type: 3}

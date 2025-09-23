@@ -5771,9 +5771,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78e03c193cbc0a4891fe165a0300415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressScale: 0.85
-  pressDuration: 0.1
-  releaseDuration: 0.15
 --- !u!1 &5339549006915808982
 GameObject:
   m_ObjectHideFlags: 0
@@ -9120,6 +9117,7 @@ MonoBehaviour:
   - {fileID: 5138747952351440609}
   - {fileID: 6968746136481219663}
   - {fileID: 7467785510116239929}
+  nothingEnemyInfo: {fileID: 11400000, guid: 7eb055cfecc8d5749b6479f3c18f08de, type: 2}
   image500px: {fileID: 3144303876200058426}
   enemyNameText: {fileID: 5065222516857589803}
   enemyScientificNameText: {fileID: 7477395328719032287}
