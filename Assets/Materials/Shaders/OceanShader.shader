@@ -24,6 +24,12 @@ Shader "Unlit/Ocean"
             Cull Off
 
             CGPROGRAM
+
+            #ifdef GL_ES
+            precision highp float;
+            #endif
+
+            #pragma target 3.0
             #pragma vertex vert
             #pragma fragment frag
 

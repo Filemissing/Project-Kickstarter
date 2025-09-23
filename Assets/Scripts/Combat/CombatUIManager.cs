@@ -20,6 +20,13 @@ public class CombatUIManager : MonoBehaviour
     [SerializeField] CanvasGroup attackMenu;
     [SerializeField] CanvasGroup itemsMenu;
 
+    [Header("Intro")]
+    [SerializeField] CanvasGroup introGroup;
+    [SerializeField] TMP_Text title;
+    [SerializeField] TMP_Text subTitle;
+    [SerializeField] Image image;
+    [SerializeField] IntroAnimator introAnimator;
+
     [Header("Prefabs")]
     [SerializeField] Button buttonPrefab;
     [SerializeField] Button backButtonPrefab;
@@ -29,12 +36,14 @@ public class CombatUIManager : MonoBehaviour
         HideCanvasGroup(actionMenu);
         HideCanvasGroup(attackMenu);
         HideCanvasGroup(itemsMenu);
+        HideCanvasGroup(introGroup);
     }
     public void ShowActionMenu()
     {
         ShowCanvasGroup(actionMenu);
         HideCanvasGroup(attackMenu);
         HideCanvasGroup(itemsMenu);
+        HideCanvasGroup(introGroup);
     }
     public void ShowAttackMenu()
     {
@@ -43,6 +52,7 @@ public class CombatUIManager : MonoBehaviour
         HideCanvasGroup(actionMenu);
         ShowCanvasGroup(attackMenu);
         HideCanvasGroup(itemsMenu);
+        HideCanvasGroup(introGroup);
     }
     public void ShowItemsMenu()
     {
@@ -51,6 +61,20 @@ public class CombatUIManager : MonoBehaviour
         HideCanvasGroup(actionMenu);
         HideCanvasGroup(attackMenu);
         ShowCanvasGroup(itemsMenu);
+        HideCanvasGroup(introGroup);
+    }
+    public void ShowIntro(EnemyInfo info)
+    {
+        title.text = info.name;
+        subTitle.text = info.catchPhrase;
+        image.sprite = info.sprite500px;
+
+        HideCanvasGroup(actionMenu);
+        HideCanvasGroup(attackMenu);
+        HideCanvasGroup(itemsMenu);
+        ShowCanvasGroup(introGroup);
+
+        StartCoroutine(introAnimator.DoIntro());
     }
 
     void ShowCanvasGroup(CanvasGroup group)

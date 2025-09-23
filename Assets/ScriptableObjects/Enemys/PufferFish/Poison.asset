@@ -16,8 +16,10 @@ MonoBehaviour:
   oxygenCost: 0
   damage: 5
   givesStatusEffect: 1
-  statusEffect: {fileID: 11400000, guid: faa9b6b711202de44977687ee0049694, type: 2}
-  effectLevel: 1
+  statusEffectType: 2
+  effectLevel: 5
   hasFollowUp: 1
   isForced: 1
   followUpAttack: {fileID: 11400000, guid: 669bb92c3289fdc4fad877ae7b0e4ac0, type: 2}
+  chance: 0
+  oxygenDrain: 0

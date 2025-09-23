@@ -1,9 +1,12 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Bleed Effect", menuName = "Combat/Status Effects/Bleed Effect")]
 public class BleedEffect : StatusEffect
 {
-    public BleedEffect(int level) => this.level = level;
+    public BleedEffect(int level)
+    {
+        this.level = level;
+        icon = Resources.Load<Sprite>("Status Effect Icons/Bleed");
+    }
 
     int damage => 1 * level;
     public override void ExecuteEffect(Combatant target)

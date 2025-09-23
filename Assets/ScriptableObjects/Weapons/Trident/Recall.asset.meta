@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/ScriptableObjects/Weapons/Fishing rod/Fishing Rod.asset.meta
+guid: d87b704bf543a6d4f8167d364abd967e
+========
+guid: ab615f16996916f4a83e9d3d5e981e0d
+>>>>>>>> Shop:Assets/ScriptableObjects/Weapons/Trident/Recall.asset.meta
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,4 +1,5 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,27 +14,28 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else
-            throw new System.Exception("Multiple instances of GameManager detected!");
+            Destroy(gameObject);
     }
 
     public playerMode currentPlayerMode = playerMode.boating;
 
-    public GameObject player;
-    public Canvas boatingUI;
-    public Canvas shopUI;
-    public Notification notification;
-    public FishingMinigame fishingMinigame;
-    public bool canPlayerMove = true;
+    public PlayerStats playerStats;
 
-    public int playerMicroPlastics;
-    
-    public int playerMaxOxygen;
+    public List<EnemyInfo> unlockedEnemyInfos = new();
 
-    public void EnterCombat(Enemy enemy)
+    public void EnterCombat(EnemyInfo enemy, bool wonMinigame)
     {
-        SceneManager.LoadScene("CombatScene");
+        StartCoroutine(EnterCombatAsync(enemy, wonMinigame));
+    }
+
+    public IEnumerator EnterCombatAsync(EnemyInfo enemy, bool wonMinigame)
+    {
+        AsyncOperation op = SceneManager.LoadSceneAsync("CombatScene");
+        while (!op.isDone)
+            yield return null;
+
         currentPlayerMode = playerMode.inCombat;
-        CombatManager.instance.StartCombat(enemy);
+        CombatManager.instance.StartCombat(enemy, wonMinigame);
     }
 }
 public enum playerMode

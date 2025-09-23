@@ -1,5 +1,6 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CombatManager : MonoBehaviour
 {
@@ -12,28 +13,43 @@ public class CombatManager : MonoBehaviour
             throw new System.Exception("Multiple instances of CombatManager detected!");
     }
 
-    [Header("Static references")]
+    [Header("Combatant setup referenes")]
     [SerializeField] GameObject enemyPos;
     public PlayerCombat playerCombat;
+
+    [Header("Enemy References")]
     public RectTransform enemyHealthBar;
+    public RectTransform enemyStatusBar;
+    public StatusEffectIcon statusIconPrefab;
+    public RectTransform enemyMoveNameSpace;
+    public MoveNameAnimator enemyMoveNamePrefab;
+
     [HideInInspector] public Enemy enemy;
 
     [Header("Combat State")]
     public combatState currentCombatState = combatState.playerTurn;
 
-    [Header("Testing")]
-    public Enemy testEnemy;
-    private void Start()
-    {
-        StartCombat(testEnemy);
-    }
-
-    public void StartCombat(Enemy enemy)
+    public void StartCombat(EnemyInfo enemyInfo, bool wonMinigame)
     {
         currentCombatState = combatState.playerTurn;
-        this.enemy = Instantiate(enemy, enemyPos.transform);
-        this.enemy.healthBar = enemyHealthBar;
-        playerCombat.StartTurn();
+
+        // assign enemy variables
+        enemy = Instantiate(enemyInfo.enemy, enemyPos.transform);
+        enemy.enemyInfo = enemyInfo;
+        enemy.healthBar = enemyHealthBar;
+        enemy.statusBar = enemyStatusBar;
+        enemy.statusIconPrefab = statusIconPrefab;
+        enemy.moveNameSpace = enemyMoveNameSpace;
+        enemy.moveNamePrefab = enemyMoveNamePrefab;
+
+        // apply miniGame results
+        if (!wonMinigame)
+        {
+            playerCombat.statusEffects.Add(new SkillIssuedEffect(2));
+            playerCombat.statusEffects.Add(new EntangledEffect(1));
+        }
+
+        CombatUIManager.instance.ShowIntro(enemyInfo);
     }
     public void EndCombat(CombatEndState endState)
     {
@@ -41,6 +57,8 @@ public class CombatManager : MonoBehaviour
         {
             case CombatEndState.Victory:
                 Debug.Log("You won the fight!");
+                GameManager.instance.playerStats.currency += enemy.enemyInfo.currencyDropAmount;
+                GameManager.instance.unlockedEnemyInfos.Add(enemy.enemyInfo);
                 break;
             case CombatEndState.Defeat:
                 Debug.Log("You lost the fight...");
@@ -49,6 +67,9 @@ public class CombatManager : MonoBehaviour
                 Debug.Log("You fled the fight.");
                 break;
         }
+
+        GameManager.instance.currentPlayerMode = playerMode.boating;
+        SceneManager.LoadScene("Main");
     }
 
     public void NextTurn()
@@ -65,7 +86,6 @@ public class CombatManager : MonoBehaviour
                 break;
         }
     }
-
 }
 
 public enum combatState

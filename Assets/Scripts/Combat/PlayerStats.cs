@@ -8,6 +8,8 @@ public class PlayerStats : ScriptableObject
 
     public int maxOxygen;
 
+    public int currency;
+
     public Weapon currentWeapon;
     public List<Weapon> unlockedWeapons = new();
 

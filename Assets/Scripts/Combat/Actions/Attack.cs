@@ -14,7 +14,9 @@ public class Attack : Action
     public bool isForced;
     public Attack followUpAttack;
 
-    
+    [Header("Enemy specific")]
+    public int chance;
+    public int oxygenDrain;
 
     public void OnEnable()
     {
@@ -46,13 +48,7 @@ public class Attack : Action
         // apply possible status effect to target
         if (givesStatusEffect && statusEffect != null)
         {
-            if(target.statusEffects.Contains(statusEffect))
-                target.statusEffects.Find(e => e == statusEffect).level += effectLevel;
-            else
-            {
-                target.statusEffects.Add(statusEffect);
-                target.statusEffects.Find(e => e == statusEffect).level = effectLevel;
-            }
+            statusEffect.ApplyEffect(target);
         }
 
         if (hasFollowUp && followUpAttack != null)
@@ -79,6 +75,11 @@ public class Attack : Action
             finalDamage = Mathf.RoundToInt(finalDamage * wetEffect.damageMultiplier);
 
         target.Damage(finalDamage);
+
+        if(target is PlayerCombat playerCombat2)
+        {
+            playerCombat2.UseOxygen(oxygenDrain);
+        }
 
         //additional logic
         base.Execute(user, target);
