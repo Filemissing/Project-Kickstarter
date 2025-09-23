@@ -1,7 +1,6 @@
-using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -20,8 +19,9 @@ public class GameManager : MonoBehaviour
 
     public playerMode currentPlayerMode = playerMode.boating;
 
-    public int playerMicroPlastics;
     public PlayerStats playerStats;
+
+    public List<EnemyInfo> unlockedEnemyInfos = new();
 
     public void EnterCombat(EnemyInfo enemy, bool wonMinigame)
     {

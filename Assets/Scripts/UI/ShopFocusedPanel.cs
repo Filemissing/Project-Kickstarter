@@ -198,9 +198,9 @@ public class ShopFocusedPanel : MonoBehaviour
             case ButtonType.Purchase:
                 int price = Convert.ToInt32(costString);
                 
-                if (GameManager.instance.playerMicroPlastics >= price)
+                if (GameManager.instance.playerStats.currency >= price)
                 {
-                    GameManager.instance.playerMicroPlastics -= price;
+                    GameManager.instance.playerStats.currency -= price;
                     
                     switch (usedClass)
                     {

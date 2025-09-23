@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CombatManager : MonoBehaviour
 {
@@ -18,20 +16,33 @@ public class CombatManager : MonoBehaviour
     [Header("Combatant setup referenes")]
     [SerializeField] GameObject enemyPos;
     public PlayerCombat playerCombat;
+
+    [Header("Enemy References")]
     public RectTransform enemyHealthBar;
+    public RectTransform enemyStatusBar;
+    public StatusEffectIcon statusIconPrefab;
+    public RectTransform enemyMoveNameSpace;
+    public MoveNameAnimator enemyMoveNamePrefab;
+
     [HideInInspector] public Enemy enemy;
 
     [Header("Combat State")]
     public combatState currentCombatState = combatState.playerTurn;
 
-    [Header("Intro")]
-    [SerializeField] float introDuration;
-
     public void StartCombat(EnemyInfo enemyInfo, bool wonMinigame)
     {
         currentCombatState = combatState.playerTurn;
+
+        // assign enemy variables
         enemy = Instantiate(enemyInfo.enemy, enemyPos.transform);
+        enemy.enemyInfo = enemyInfo;
         enemy.healthBar = enemyHealthBar;
+        enemy.statusBar = enemyStatusBar;
+        enemy.statusIconPrefab = statusIconPrefab;
+        enemy.moveNameSpace = enemyMoveNameSpace;
+        enemy.moveNamePrefab = enemyMoveNamePrefab;
+
+        // apply miniGame results
         if (!wonMinigame)
         {
             playerCombat.statusEffects.Add(new SkillIssuedEffect(2));
@@ -46,6 +57,8 @@ public class CombatManager : MonoBehaviour
         {
             case CombatEndState.Victory:
                 Debug.Log("You won the fight!");
+                GameManager.instance.playerStats.currency += enemy.enemyInfo.currencyDropAmount;
+                GameManager.instance.unlockedEnemyInfos.Add(enemy.enemyInfo);
                 break;
             case CombatEndState.Defeat:
                 Debug.Log("You lost the fight...");
