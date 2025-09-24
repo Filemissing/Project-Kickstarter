@@ -67,7 +67,8 @@ public class CombatUIManager : MonoBehaviour
     {
         title.text = info.name;
         subTitle.text = info.catchPhrase;
-        image.sprite = info.sprite500px;
+        image.sprite = info.introSprite;
+        image.SetNativeSize();
 
         HideCanvasGroup(actionMenu);
         HideCanvasGroup(attackMenu);

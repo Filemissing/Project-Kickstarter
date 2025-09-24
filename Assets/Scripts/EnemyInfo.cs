@@ -11,6 +11,7 @@ public class EnemyInfo : ScriptableObject
     [Header("Combat")]
     public Enemy enemy;
     public int currencyDropAmount;
+    public Sprite introSprite;
 
     [Header("Fish Spawn")]
     [Tooltip("Between 1-10")]

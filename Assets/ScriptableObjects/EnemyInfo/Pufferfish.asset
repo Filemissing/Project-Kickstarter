@@ -17,6 +17,7 @@ MonoBehaviour:
   sprite150px: {fileID: 21300000, guid: 12a89ad7094586b409f73c02b53b7e25, type: 3}
   enemy: {fileID: 3702919068124877934, guid: 0a273dfebf8d24440ae165cee5638750, type: 3}
   currencyDropAmount: 50
+  introSprite: {fileID: 21300000, guid: 250d07f1a4452184e821a3d2884e2331, type: 3}
   rarity: 1
   zonesAmount: 3
   sprite500px: {fileID: 21300000, guid: 12a89ad7094586b409f73c02b53b7e25, type: 3}
