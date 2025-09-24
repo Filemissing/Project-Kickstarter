@@ -1657,7 +1657,7 @@ PrefabInstance:
     - target: {fileID: 5620163003652164959, guid: 96c33ac482140f548abb995fd670c39e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 834253001}
     - target: {fileID: 5620163003652164959, guid: 96c33ac482140f548abb995fd670c39e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1676,7 +1676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6816625949334949122, guid: 96c33ac482140f548abb995fd670c39e, type: 3}
       propertyPath: m_Name
-      value: Button (2)
+      value: BreatheButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2971,7 +2971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 28cf9d106d7680c4487d1b8eef08da91, type: 3}
       propertyPath: m_Name
-      value: Treading Water
+      value: Player Model
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2980,6 +2980,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 28cf9d106d7680c4487d1b8eef08da91, type: 3}
       insertIndex: -1
       addedObject: {fileID: 834253001}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 28cf9d106d7680c4487d1b8eef08da91, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 834253002}
   m_SourcePrefab: {fileID: 100100000, guid: 28cf9d106d7680c4487d1b8eef08da91, type: 3}
 --- !u!4 &834252999 stripped
 Transform:
@@ -3015,6 +3018,28 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: b8ee730195021e845854e5c22abb4021, type: 2}
   breatheAction: {fileID: 11400000, guid: 26a286be8cade1e419af75fcceacd3e8, type: 2}
   runAction: {fileID: 11400000, guid: 192784c620461db4da4a97d6a14c273e, type: 2}
+--- !u!95 &834253002
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 834253000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3fbf584a852ae0846beeebdb03fb035b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &835612337 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5900662014792239310, guid: e88ab26775d66824bac2825755c78146, type: 3}
@@ -3394,7 +3419,7 @@ PrefabInstance:
     - target: {fileID: 5620163003652164959, guid: 96c33ac482140f548abb995fd670c39e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 834253001}
     - target: {fileID: 5620163003652164959, guid: 96c33ac482140f548abb995fd670c39e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -3413,7 +3438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6816625949334949122, guid: 96c33ac482140f548abb995fd670c39e, type: 3}
       propertyPath: m_Name
-      value: Button (3)
+      value: RunButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4691,7 +4716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6816625949334949122, guid: 96c33ac482140f548abb995fd670c39e, type: 3}
       propertyPath: m_Name
-      value: Button
+      value: AttackButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6315,7 +6340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6816625949334949122, guid: 96c33ac482140f548abb995fd670c39e, type: 3}
       propertyPath: m_Name
-      value: Button (1)
+      value: itemsButton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
