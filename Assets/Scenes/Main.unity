@@ -440,7 +440,7 @@ MonoBehaviour:
   shop: {fileID: 1850182295}
   notification: {fileID: 1066635957}
   fishingMinigame: {fileID: 768026924}
-  canPlayerMove: 1
+  canPlayerMoveList: []
 --- !u!4 &140714856
 Transform:
   m_ObjectHideFlags: 0
@@ -569,7 +569,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1806,13 +1806,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 23bbef6eac45b974fb9a6f79592b8e9a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1196993162}
   m_SourcePrefab: {fileID: 100100000, guid: 23bbef6eac45b974fb9a6f79592b8e9a, type: 3}
 --- !u!4 &1196993160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 23bbef6eac45b974fb9a6f79592b8e9a, type: 3}
   m_PrefabInstance: {fileID: 1196993159}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1196993161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 23bbef6eac45b974fb9a6f79592b8e9a, type: 3}
+  m_PrefabInstance: {fileID: 1196993159}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1196993162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196993161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c003daf67a7abe4e8acf09c39d066ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ocean: {fileID: 1775750585}
+  startPositionTransform: {fileID: 428229900}
+  halfSizeX: 1
+  halfSizeZ: 1
+  buoyancyLerp: 2
+  positionOffset: {x: 0, y: 0.4, z: 0}
+  offsetXZMultiplier: 1
+  offsetYMultiplier: 1
+  tiltMultiplier: 1
 --- !u!1 &1356477210
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,7 +2160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1200301051069211049, guid: 6d82f60af7630cb4b9ccfca61ee7c11c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0006542331
+      value: 0.0001667146
       objectReference: {fileID: 0}
     - target: {fileID: 1246527562741662416, guid: 6d82f60af7630cb4b9ccfca61ee7c11c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2171,7 +2200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2429801015859007402, guid: 6d82f60af7630cb4b9ccfca61ee7c11c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0006542331
+      value: 0.0001667146
       objectReference: {fileID: 0}
     - target: {fileID: 2446876779890417879, guid: 6d82f60af7630cb4b9ccfca61ee7c11c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2435,7 +2464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6986370424019864194, guid: 6d82f60af7630cb4b9ccfca61ee7c11c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0006542331
+      value: 0.0001667146
       objectReference: {fileID: 0}
     - target: {fileID: 7156746642510491363, guid: 6d82f60af7630cb4b9ccfca61ee7c11c, type: 3}
       propertyPath: m_AnchorMax.y
