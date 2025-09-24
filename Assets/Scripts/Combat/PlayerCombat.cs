@@ -26,6 +26,9 @@ public class PlayerCombat : Combatant
         currentOxygen = maxOxygen;
         UpdateOxygenBar();
 
+        // reset followUp attacks
+        playerStats.currentWeapon.currentAttacks = new(playerStats.currentWeapon.attacks);
+
         base.Start();
     }
 

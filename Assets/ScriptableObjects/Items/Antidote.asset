@@ -18,5 +18,5 @@ MonoBehaviour:
     be removed from your body. Side effects include glowing faintly for a minute.
   icon: {fileID: 21300000, guid: e26781faff9bfa0438105a645ff6b0e5, type: 3}
   cost: 325
-  givesStatusEffect: 1
-  statusEffectType: 4
+  givesStatusEffect: 0
+  statusEffectType: 2

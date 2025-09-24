@@ -9,4 +9,5 @@ public class Weapon : ScriptableObject
     public string description;
     public int cost;
     public List<Attack> attacks;
+    [HideInInspector] public List<Attack> currentAttacks;
 }

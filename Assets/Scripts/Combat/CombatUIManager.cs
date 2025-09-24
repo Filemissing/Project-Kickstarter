@@ -99,7 +99,7 @@ public class CombatUIManager : MonoBehaviour
 
         AddBackButton(attackMenu.transform);
 
-        Attack[] attacks = GetAttacks();
+        Attack[] attacks = GetCurrentAttacks();
         Attack forcedAttack = attacks.Where(a => a.isForced).FirstOrDefault();
 
         if (forcedAttack != null)
@@ -117,7 +117,7 @@ public class CombatUIManager : MonoBehaviour
             button.GetComponentInChildren<TMP_Text>().text = attacks[i].name;
 
             int index = i; // Capture the current value of i
-            button.onClick.AddListener(delegate { GetAttacks()[index].Execute(CombatManager.instance.playerCombat, CombatManager.instance.enemy); });
+            button.onClick.AddListener(delegate { GetCurrentAttacks()[index].Execute(CombatManager.instance.playerCombat, CombatManager.instance.enemy); });
         }
     }
     public void ConstructItemsMenu()
@@ -156,8 +156,8 @@ public class CombatUIManager : MonoBehaviour
         Instantiate(backButtonPrefab, parentMenu).onClick.AddListener(ShowActionMenu);
     }
 
-    Attack[] GetAttacks()
+    Attack[] GetCurrentAttacks()
     {
-        return CombatManager.instance.playerCombat.playerStats.currentWeapon.attacks.ToArray();
+        return CombatManager.instance.playerCombat.playerStats.currentWeapon.currentAttacks.ToArray();
     }
 }

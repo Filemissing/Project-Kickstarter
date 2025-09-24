@@ -50,8 +50,8 @@ public class Attack : Action
         {
             if(user is PlayerCombat playerCombat)
             {
-                playerCombat.playerStats.currentWeapon.attacks.Remove(this);
-                playerCombat.playerStats.currentWeapon.attacks.Add(followUpAttack);
+                playerCombat.playerStats.currentWeapon.currentAttacks.Remove(this);
+                playerCombat.playerStats.currentWeapon.currentAttacks.Add(followUpAttack);
             }
             else if (user is Enemy enemy)
             {
