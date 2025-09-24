@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Trident
   icon: {fileID: 21300000, guid: 1df5415bfafbddb4d81a7c20c2cd6777, type: 3}
   description: Freshly scavenged from the city of Atlantis.
-  cost: 100000
+  cost: 1000
   attacks:
   - {fileID: 11400000, guid: 1732ca1d6ff469b4fb3f34fd084b793b, type: 2}
   - {fileID: 11400000, guid: b79d7776c39da354fb4f0c4c8e5586f9, type: 2}
