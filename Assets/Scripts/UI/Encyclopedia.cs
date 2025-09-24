@@ -43,6 +43,8 @@ public class Encyclopedia : MonoBehaviour
     [Button]
     public void Appear()
     {
+        BoatingManager.instance.canPlayerMoveList.Add(this);
+        
         canvasGroup.alpha = 0;
         canvasGroup.DOFade(1, .2f).SetEase(Ease.OutCubic);
         canvasGroup.interactable = true;
@@ -54,6 +56,8 @@ public class Encyclopedia : MonoBehaviour
 
     public void Disappear()
     {
+        BoatingManager.instance.canPlayerMoveList.Remove(this);
+        
         canvasGroup.alpha = 1;
         canvasGroup.DOFade(0, .2f).SetEase(Ease.OutCubic);
         canvasGroup.interactable = false;

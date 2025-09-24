@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BoatingManager : MonoBehaviour
@@ -16,5 +17,5 @@ public class BoatingManager : MonoBehaviour
     public Shop shop;
     public Notification notification;
     public FishingMinigame fishingMinigame;
-    public bool canPlayerMove = true;
+    public List<MonoBehaviour> canPlayerMoveList = new List<MonoBehaviour>();
 }

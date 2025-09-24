@@ -5,16 +5,33 @@ Shader "UI/ImageBlur"
         _MainTex("Texture", 2D) = "white" {}
         _BlurRadius("Blur Radius", Float) = 8
         _Blackness("Blackness", Float) = 0
+
+        // UI stencil properties (needed to stop Unity warnings)
+        _Stencil("Stencil ID", Float) = 0
+        _StencilOp("Stencil Operation", Float) = 0
+        _StencilComp("Stencil Comparison", Float) = 8
+        _StencilReadMask("Stencil Read Mask", Float) = 255
+        _StencilWriteMask("Stencil Write Mask", Float) = 255
+        _ColorMask("Color Mask", Float) = 15
     }
 
     SubShader
     {
-        Tags { "RenderType"="Transparent" "Queue"="Transparent" "CanvasRenderer"="True" }
-        Cull Off ZWrite Off ZTest Always
+        Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" "CanvasRenderer"="True" }
         Blend SrcAlpha OneMinusSrcAlpha
+        Cull Off ZWrite Off ZTest Always
 
         Pass
         {
+            Stencil
+            {
+                Ref [_Stencil]
+                Comp [_StencilComp]
+                Pass [_StencilOp]
+                ReadMask [_StencilReadMask]
+                WriteMask [_StencilWriteMask]
+            }
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -25,8 +42,17 @@ Shader "UI/ImageBlur"
             float _BlurRadius;
             float _Blackness;
 
-            struct appdata { float4 vertex:POSITION; float2 uv:TEXCOORD0; };
-            struct v2f { float2 uv:TEXCOORD0; float4 vertex:SV_POSITION; };
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                float2 uv : TEXCOORD0;
+            };
+
+            struct v2f
+            {
+                float2 uv : TEXCOORD0;
+                float4 vertex : SV_POSITION;
+            };
 
             v2f vert(appdata v)
             {
@@ -44,7 +70,6 @@ Shader "UI/ImageBlur"
                     return max(c - fixed4(_Blackness,_Blackness,_Blackness,0), 0);
                 }
 
-                // Limit samples for performance
                 int radius = min(int(_BlurRadius), 16);
                 float sigma = _BlurRadius * 0.5;
 
@@ -70,7 +95,6 @@ Shader "UI/ImageBlur"
                 }
                 vCol /= vWeight;
 
-                // Combine and apply blackness
                 fixed4 col = (hCol + vCol) * 0.5;
                 col = max(col - fixed4(_Blackness,_Blackness,_Blackness,0), 0);
 

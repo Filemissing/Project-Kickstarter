@@ -1,3 +1,5 @@
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,14 +15,24 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && BoatingManager.instance.canPlayerMove)
+        if (Input.GetMouseButtonDown(0) && BoatingManager.instance.canPlayerMoveList.Count == 0)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            
-            if (Physics.Raycast(ray, out RaycastHit hit, float.PositiveInfinity, LayerMask.GetMask("Ocean")))
+            IEnumerator UpdateIEnumerator()
             {
-                agent.SetDestination(hit.point);
+                yield return new WaitForSeconds(.1f);
+
+                if (BoatingManager.instance.canPlayerMoveList.Count == 0)
+                {
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
+                    if (Physics.Raycast(ray, out RaycastHit hit, float.PositiveInfinity, LayerMask.GetMask("Ocean")))
+                    {
+                        agent.SetDestination(hit.point);
+                    }
+                }
             }
+            
+            StartCoroutine(UpdateIEnumerator());
         }
     }
 }
