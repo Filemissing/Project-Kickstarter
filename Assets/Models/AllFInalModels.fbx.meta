@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6b25fbb47cf023446b50cabb4bb73452
+guid: 8528d3f5d8e1e2a428c240ac08c28482
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,42 +8,37 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: BigSharks
-    second: {fileID: 2100000, guid: 76aa62150c0036e4daa733c4eba513f8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Brown
-    second: {fileID: 2100000, guid: fa0654f82a340f54eb62a8be99e839ee, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: CatfishNExtra_s
-    second: {fileID: 2100000, guid: 63a03fb7d80f5f847bbd833d48830430, type: 2}
+    second: {fileID: 2100000, guid: 2519cca1d35ff6e41b07256359851280, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: FishSmall
-    second: {fileID: 2100000, guid: ea3aedcc26fed9a4a8e578bf2c243eda, type: 2}
+    second: {fileID: 2100000, guid: bdeefb67906736a49bc0cce60d0c28c3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Leaves
-    second: {fileID: 2100000, guid: 1328ad628af78f3428b25cc01392431e, type: 2}
+      name: Green
+    second: {fileID: 2100000, guid: ef267d7cd4f81ca4bab60c0f4c541a1b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert2
-    second: {fileID: 2100000, guid: e0ce7fa0d29182844829e08f5ece3236, type: 2}
+      name: Red
+    second: {fileID: 2100000, guid: 3049820a751ff8f4397f847a88ac2d1f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert6
-    second: {fileID: 2100000, guid: ee6f09a6cbaa41a43888af3ccd22f962, type: 2}
+      name: Sand
+    second: {fileID: 2100000, guid: 47d8390de7ebc9045a6435080e73060f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: standardSurface1
-    second: {fileID: 2100000, guid: 8580e878f05bd6a4cac53c85429b2bca, type: 2}
+      name: White
+    second: {fileID: 2100000, guid: 7b4adac7c72af4141b66ff0fc7f8a26a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: 2928d0b8288f0ad4aa90437a6bc60eb8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -73,7 +68,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -128,7 +123,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
