@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: Fishing Rod
   m_EditorClassIdentifier: 
   name: Fishing rod
-  icon: {fileID: 0}
-  description: 
+  icon: {fileID: 21300000, guid: ee613704cac0e2346923700adc2bbb2d, type: 3}
+  description: Basic fishing rod. Not meant for fishing. Enherited from your great
+    great great great great great great great great great uncle.
   cost: 0
   attacks:
+  - {fileID: 11400000, guid: 5f7edd87a45427a4abdae5e2d27d05a4, type: 2}
+  - {fileID: 11400000, guid: 81e3db0d21df90a4388006d7fac03dd7, type: 2}
+  currentAttacks:
   - {fileID: 11400000, guid: 5f7edd87a45427a4abdae5e2d27d05a4, type: 2}
   - {fileID: 11400000, guid: 81e3db0d21df90a4388006d7fac03dd7, type: 2}

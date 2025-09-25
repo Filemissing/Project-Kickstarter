@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Harpoon Gun
   m_EditorClassIdentifier: 
   name: Harpoon Gun
-  icon: {fileID: 21300000, guid: 781396b49ede6634f84b1210a9c8d0fe, type: 3}
+  icon: {fileID: 21300000, guid: e08d478624c89624a82d0b4aab08ca0b, type: 3}
   description: Safely injects harpoons into your opponents. No fishes were hurt during
     the testing of this medical tool.
   cost: 500
-  attacks: []
+  attacks:
+  - {fileID: 11400000, guid: 18b0083fbdb692848805e420b9c1663d, type: 2}
+  - {fileID: 11400000, guid: f189d6eda43a3474eb2a1af168708dfe, type: 2}
   currentAttacks: []
