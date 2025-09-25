@@ -181,6 +181,19 @@ public class ShopFocusedPanel : MonoBehaviour
                         attackCanvasGroup.alpha = 0;
                     }
                 }
+                
+                // Check if hidden attack
+                for (int i = 0; i < weapon.attacks.Count; i++)
+                {
+                    Attack attack = weapon.attacks[i];
+
+                    if (attack.followUpAttack != null)
+                    {
+                        attackTexts[weapon.attacks.Count].text = attack.followUpAttack.name;
+                        attackCanvasGroups[weapon.attacks.Count].alpha = 1;
+                    }
+                }
+                
                 break;
             case UsedClass.Item:
                 attacksParentCanvasGroup.alpha = 0;

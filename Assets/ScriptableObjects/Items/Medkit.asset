@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Medkit
   description: Heals you for 20 HP
-  details: Fishing is a dangerous profession, make sure you're prepared for anything
+  details: Fishing is a dangerous profession, make sure you're prepared for anything.
+    Expired 20 years ago. Does not include essentials like baind-aids. Includes 3
+    shots of adrenaline.
   icon: {fileID: 21300000, guid: fdda78400159b9d43b0a4be1801af8ba, type: 3}
   cost: 100
   givesStatusEffect: 0
