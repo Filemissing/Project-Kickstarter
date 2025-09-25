@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public PlayerStats playerStats;
 
     public List<EnemyInfo> unlockedEnemyInfos = new();
+    public EnemyInfo newUnlockedEnemyInfo;
 
     public void EnterCombat(EnemyInfo enemy, bool wonMinigame)
     {
