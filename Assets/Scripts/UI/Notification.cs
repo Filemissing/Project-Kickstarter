@@ -49,6 +49,12 @@ public class Notification : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
         rectTransform.anchoredPosition = hidePosition;
+
+        if (GameManager.instance.newUnlockedEnemyInfo != null)
+        {
+            PlayNotification(GameManager.instance.newUnlockedEnemyInfo);
+            GameManager.instance.newUnlockedEnemyInfo == null;
+        }
     }
     
     public void PlayNotification(EnemyInfo enemyInfo)
