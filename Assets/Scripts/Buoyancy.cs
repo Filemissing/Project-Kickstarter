@@ -23,6 +23,8 @@ public class Buoyancy : MonoBehaviour
 
     private void Start()
     {
+        ocean = GameObject.Find("Ocean").GetComponent<OceanController>();
+        
         if (ocean == null)
         {
             Debug.LogError("Buoyancy: OceanController reference not set!");

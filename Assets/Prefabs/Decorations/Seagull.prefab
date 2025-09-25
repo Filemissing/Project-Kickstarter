@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8107425256765998652}
   - component: {fileID: 5613677931635634669}
   - component: {fileID: 8979279025773922234}
+  - component: {fileID: 751679439944276105}
   m_Layer: 0
   m_Name: Seagull
   m_TagString: Untagged
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &751679439944276105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549560235744520606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c003daf67a7abe4e8acf09c39d066ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ocean: {fileID: 0}
+  startPositionTransform: {fileID: 0}
+  halfSizeX: 1
+  halfSizeZ: 1
+  buoyancyLerp: 2
+  positionOffset: {x: 0, y: -0.08, z: 0}
+  offsetXZMultiplier: 1
+  offsetYMultiplier: 1
+  tiltMultiplier: 1

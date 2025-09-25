@@ -53,7 +53,7 @@ public class Notification : MonoBehaviour
         if (GameManager.instance.newUnlockedEnemyInfo != null)
         {
             PlayNotification(GameManager.instance.newUnlockedEnemyInfo);
-            GameManager.instance.newUnlockedEnemyInfo == null;
+            GameManager.instance.newUnlockedEnemyInfo = null;
         }
     }
     
