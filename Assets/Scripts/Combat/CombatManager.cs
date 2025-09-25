@@ -82,7 +82,7 @@ public class CombatManager : MonoBehaviour
         {
             case combatState.playerTurn:
                 currentCombatState = combatState.enemyTurn;
-                enemy.ExecuteMove();
+                enemy.StartTurn();
                 break;
             case combatState.enemyTurn:
                 currentCombatState = combatState.playerTurn;
