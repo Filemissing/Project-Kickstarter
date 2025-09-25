@@ -24,7 +24,7 @@ MonoBehaviour:
   sprite100px: {fileID: 21300000, guid: 8fe2441237b097949b69b560d59e4a77, type: 3}
   scientificName: Tetraodontidae
   endangerment: 0
-  naturalHabitat: {fileID: 21300000, guid: 3b679fa5b6f53d84585014b1451727fb, type: 3}
+  naturalHabitat: {fileID: 21300000, guid: f8feef17a8e117746a31fca835b6fa08, type: 3}
   description: "These freshwater species are found in disjunct tropical regions of
     South America (Colomesus asellus and Colomesus tocantinensis), Africa (six Tetraodon
     species), and Southeast Asia (Auriglobus, Carinotetraodon, Dichotomyctere, Leiodon

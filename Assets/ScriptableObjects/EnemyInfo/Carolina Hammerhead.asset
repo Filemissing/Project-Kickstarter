@@ -24,7 +24,7 @@ MonoBehaviour:
   sprite100px: {fileID: 21300000, guid: 55c70f953c07e9f43b3b0b875491699d, type: 3}
   scientificName: Sphyrna gilberti
   endangerment: 2
-  naturalHabitat: {fileID: 21300000, guid: a5f4cc6a36c24ee4b89016ed1a2e8278, type: 3}
+  naturalHabitat: {fileID: 21300000, guid: b9aedd191b53f334c81ef0f2cc8c11ff, type: 3}
   description: 'The Carolina hammerhead (Sphyrna gilberti) is a species of hammerhead
     shark, and part of the family Sphyrnidae, found in the western Atlantic Ocean.
     Their pupping grounds are in nearshore waters off the southeastern U.S. with

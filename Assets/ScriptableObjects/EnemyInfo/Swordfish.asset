@@ -24,7 +24,7 @@ MonoBehaviour:
   sprite100px: {fileID: 21300000, guid: 66efb4a84e130ec4483a232f7a5e4e80, type: 3}
   scientificName: Xiphias gladius
   endangerment: 1
-  naturalHabitat: {fileID: 21300000, guid: d9421623bdfc0ba4eba47d38f406c8cc, type: 3}
+  naturalHabitat: {fileID: 21300000, guid: af2e25843be19e8418cfa26f67be8397, type: 3}
   description: 'The swordfish (Xiphias gladius), also known as the broadbill[5] in
     some countries, are large, highly migratory predatory fish characterized by a
     long, flat, pointed bill. They are the sole member of the family Xiphiidae.[6][7]

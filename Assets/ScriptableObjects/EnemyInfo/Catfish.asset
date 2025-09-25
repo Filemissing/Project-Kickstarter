@@ -24,7 +24,7 @@ MonoBehaviour:
   sprite100px: {fileID: 21300000, guid: 918417c580fc4dc44b1bfceb90d31ef2, type: 3}
   scientificName: Ariopsis felis
   endangerment: 0
-  naturalHabitat: {fileID: 21300000, guid: 54f8289d8bdf7984494e723c11751462, type: 3}
+  naturalHabitat: {fileID: 21300000, guid: 57e5c6a85ea82e14096bf626f3bc8b4a, type: 3}
   description: 'The catfish can be found in all sorts of waters! Their ancestry comes
     from South America.   They are not endangered, except for some rare types! Endangered
     species of catfish - velvet catfish, mountain catfish, Mekong giant catfish 
