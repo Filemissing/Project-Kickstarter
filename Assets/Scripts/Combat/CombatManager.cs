@@ -58,7 +58,7 @@ public class CombatManager : MonoBehaviour
             case CombatEndState.Victory:
                 Debug.Log("You won the fight!");
                 GameManager.instance.playerStats.currency += enemy.enemyInfo.currencyDropAmount;
-                if (GameManager.instance.unlockedEnemyInfos.Contains(enemy.enemyInfo))
+                if (!GameManager.instance.unlockedEnemyInfos.Contains(enemy.enemyInfo))
                 {
                     GameManager.instance.unlockedEnemyInfos.Add(enemy.enemyInfo);
                     GameManager.instance.newUnlockedEnemyInfo = enemy.enemyInfo;
