@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoneyLabel : MonoBehaviour
 {
     TMP_Text text;
-    private string endString = " Microplastics";
+    [SerializeField] private string endString = " Microplastics";
     
 
     void Awake()
