@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Band-aid
   description: It stops bleeding when applied correctly.
-  details: 
+  details: For if you've gotten an owie wowie. Waterproof an fireproof. \n \n Papercut?
+    GONE! \n Broken leg? UN-BROKEN! \n Brain damage? Sorry, we can't fix that. \n
+    \n <color=red> Warning - Sticks so well that it might not come off.
   icon: {fileID: 21300000, guid: b4fe1ffc4d1878f43ac87a0d8373c742, type: 3}
   cost: 20
   givesStatusEffect: 0

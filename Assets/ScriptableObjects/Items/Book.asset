@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Book
   description: Heals your cope addiction
-  details: Ideal for those moments when you lost because of input lag
+  details: 'Ideal for those moments when you lost because of input lag. \n \n <size=20>Side
+    effects may include: \n Needing glasses \n Involuntairy correction of others
+    \n getting a 10 in your math exam'
   icon: {fileID: 21300000, guid: 8e092c00b565b0748b39a87bd5770849, type: 3}
   cost: 50
   givesStatusEffect: 0
+  appliedLevel: 0
   statusEffectType: 6
   healing: 0
