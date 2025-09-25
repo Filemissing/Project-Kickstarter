@@ -15,14 +15,9 @@ MonoBehaviour:
   maxHealth: 50
   maxOxygen: 25
   currency: 0
-  currentWeapon: {fileID: 11400000, guid: 232fb21f76af78d48aff5e512f3a51da, type: 2}
+  currentWeapon: {fileID: 11400000, guid: 8254a940f8b626141942c39fb6dc0ee1, type: 2}
   unlockedWeapons:
   - {fileID: 11400000, guid: 8254a940f8b626141942c39fb6dc0ee1, type: 2}
-  - {fileID: 11400000, guid: 4daa652034dd2604cb48853f002f6241, type: 2}
-  - {fileID: 11400000, guid: 232fb21f76af78d48aff5e512f3a51da, type: 2}
-  - {fileID: 11400000, guid: 6310158093c41ef488966a8ee42c3627, type: 2}
   items:
   - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
-  - {fileID: 11400000, guid: 63a60d5130b4cc445a1c270426704b09, type: 2}
-  - {fileID: 11400000, guid: 8dca3b5cd7bd16d4e8b3eb680047b7af, type: 2}
   - {fileID: 11400000, guid: 8dca3b5cd7bd16d4e8b3eb680047b7af, type: 2}
