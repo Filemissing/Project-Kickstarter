@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 20d099419d6fa364abddbcd8c5127c56
+guid: 15a33aa07cba23143b744962adaffb80
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Red
-    second: {fileID: 2100000, guid: c3a4f19abf34f3c40b0c6e47a3464610, type: 2}
+      name: Railing
+    second: {fileID: 2100000, guid: d648ae43b1ee8004388398a6e0edf557, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -25,9 +25,9 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 1
-    importConstraints: 1
-    animationCompression: 3
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -96,13 +96,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
