@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ad302ec6b64dc049865c482ceb9d6d8, type: 3}
-  m_Name: Bandage
+  m_Name: Net
   m_EditorClassIdentifier: 
-  name: Bandage
-  description: It stops bleeding when applied correctly.
-  details: 
-  icon: {fileID: 21300000, guid: b4fe1ffc4d1878f43ac87a0d8373c742, type: 3}
-  cost: 20
-  givesStatusEffect: 0
-  appliedLevel: 0
-  statusEffectType: 1
+  name: Net
+  description: Entangles your opponent
+  details: Restrains your opponent for a while, giving you the perfect opportunity
+    to strike
+  icon: {fileID: 21300000, guid: d7ccaa2c6a746124eaa77af64f9f89d7, type: 3}
+  cost: 100
+  givesStatusEffect: 1
+  appliedLevel: 3
+  statusEffectType: 3
   healing: 0
