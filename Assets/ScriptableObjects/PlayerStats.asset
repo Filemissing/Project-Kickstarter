@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   maxOxygen: 25
-  currency: 60
+  currency: 0
   currentWeapon: {fileID: 11400000, guid: 232fb21f76af78d48aff5e512f3a51da, type: 2}
   unlockedWeapons:
   - {fileID: 11400000, guid: 8254a940f8b626141942c39fb6dc0ee1, type: 2}
