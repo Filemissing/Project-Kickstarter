@@ -176,9 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78e03c193cbc0a4891fe165a0300415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressScale: 0.85
-  pressDuration: 0.1
-  releaseDuration: 0.15
 --- !u!114 &94830559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,7 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 428229895}
   boatingUI: {fileID: 182359627}
-  shopUI: {fileID: 0}
+  shop: {fileID: 0}
   notification: {fileID: 1066635957}
   fishingMinigame: {fileID: 768026924}
   canPlayerMove: 1
@@ -1678,7 +1675,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPlayerMode: 0
-  playerMicroPlastics: 0
+  playerStats: {fileID: 0}
+  unlockedEnemyInfos: []
 --- !u!4 &1680336887
 Transform:
   m_ObjectHideFlags: 0
